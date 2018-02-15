@@ -7,7 +7,7 @@ void vidurkis(int a, int b, int c){
     cout.precision (3);
     cout<<galBalas;
 }
-void mediana(double M[], int kiek, int c){
+void mediana(int M[], int kiek, int c){
     int j;
 	for (int i = 1; i < kiek; i++)
 	{
@@ -33,7 +33,6 @@ void mediana(double M[], int kiek, int c){
     }
 
 }
-
 void mediana(vector<int>& M, int kiek, int c){
     int j;
 	for (int i = 1; i < kiek; i++)
@@ -74,7 +73,7 @@ int main()
             cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
             auto kintamieji=0;                                      //kintamuju kiekis
             auto talpa=1;                                           //kiek masyve gali tilpti elementu
-            double *nDarbas = new double [talpa];                   //masyvas namu darbu pazymiais saugoti
+            int *nDarbas = new int [talpa];                   //masyvas namu darbu pazymiais saugoti
 
             auto i=0;                                               //masyvo elementu skaicius
             for(i=0; i<talpa; i++)                                  //ivedame pazymius
