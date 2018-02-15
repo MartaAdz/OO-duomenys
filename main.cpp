@@ -1,6 +1,7 @@
 #include <iostream>
+#include <vector>
 
-using std::cout; using std::cin; using std::endl; using std::string;
+using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 void vidurkis(int a, int b, int c){
     double galBalas=0.4*(a/b)+0.6*c;
     cout.precision (3);
@@ -33,6 +34,32 @@ void mediana(double M[], int kiek, int c){
 
 }
 
+void mediana(vector<int>& M, int kiek, int c){
+    int j;
+	for (int i = 1; i < kiek; i++)
+	{
+		j = i;
+		while (j > 0 && M[j] < M[j - 1])
+		{
+			std::swap(M[j], M[j - 1]); //rikiuojame pazymius
+			j--;
+		}
+	}
+
+    if (j%2==0)
+    {
+        auto galBalas=0.4*M[j / 2]+0.6*c;
+        cout.precision (3);
+        cout<<galBalas<<endl;
+    }
+    else
+    {
+        auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
+        cout.precision (3);
+        cout<<galBalas<<endl;
+    }
+
+}
 int main()
 {
     cout<<"Iveskite studento varda: ";
@@ -43,63 +70,111 @@ int main()
     int c;
     cin>>c;
     while(c!=1||c!=2){
-    if (c==1){
-        cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
-        auto kintamieji=0;                                      //kintamuju kiekis
-        auto talpa=1;                                           //kiek masyve gali tilpti elementu
-        double *nDarbas = new double [talpa];                   //masyvas namu darbu pazymiais saugoti
+        if (c==1){
+            cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+            auto kintamieji=0;                                      //kintamuju kiekis
+            auto talpa=1;                                           //kiek masyve gali tilpti elementu
+            double *nDarbas = new double [talpa];                   //masyvas namu darbu pazymiais saugoti
 
-        auto i=0;                                               //masyvo elementu skaicius
-        for(i=0; i<talpa; i++)                                  //ivedame pazymius
-        {
-            cout<<i+1<<" pazymys: ";
-            cin>>nDarbas[i];
-            kintamieji++;                                       //padidiname kintamuju kieki vienu elementu
-            talpa++;                                            //padidiname talpa vienu elementu
-
-            if (nDarbas[i]==-1) break;
-        }
-
-        auto nDarSuma=0;
-        for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //suskaiciuojame visu pazymiu suma
-
-        cout<<endl;
-        cout<<"Iveskite egzamino pazymi: ";
-        int egzaminas;
-        cin>>egzaminas;
-
-        cout<<endl;
-        cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-        int a;
-        cin>>a;
-        while(a!=1||a!=2)
-        {
-            if(a==1)
+            auto i=0;                                               //masyvo elementu skaicius
+            for(i=0; i<talpa; i++)                                  //ivedame pazymius
             {
-                vidurkis(nDarSuma, i, egzaminas);
-                break;
+                cout<<i+1<<" pazymys: ";
+                cin>>nDarbas[i];
+                kintamieji++;                                       //padidiname kintamuju kieki vienu elementu
+                talpa++;                                            //padidiname talpa vienu elementu
+
+                if (nDarbas[i]==-1) break;
             }
 
-            else if(a==2)
-            {
-                mediana (nDarbas, i, egzaminas);
-                break;
-            }
+            auto nDarSuma=0;
+            for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //suskaiciuojame visu pazymiu suma
 
-            else
-            {
-                cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-                cin>>a;
-            }
+            cout<<endl;
+            cout<<"Iveskite egzamino pazymi: ";
+            int egzaminas;
+            cin>>egzaminas;
 
-        }
-        break;
-        }
+            cout<<endl;
+            cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+            int a;
+            cin>>a;
+            while(a!=1||a!=2)
+            {
+                if(a==1)
+                {
+                    vidurkis(nDarSuma, i, egzaminas);
+                    break;
+                }
+
+                else if(a==2)
+                {
+                    mediana (nDarbas, i, egzaminas);
+                    break;
+                }
+
+                else
+                {
+                    cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                    cin>>a;
+                }
+
+            }
+            break;
+            }
         else if (c==2)
         {
+            cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
 
+            vector<int> nDarbas;
+            int pazymys;
+
+            for(int i=0; i<nDarbas.size()+1; i++)
+            {
+                cout<<i+1<<" pazymys: ";
+                cin>>pazymys;
+                nDarbas.push_back(pazymys);
+
+                if (pazymys==-1) break;
+            }
+
+            auto kintamieji=nDarbas.size()-1;
+            auto nDarSuma=0;
+            for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
+
+            cout<<endl;
+            cout<<"Iveskite egzamino pazymi: ";
+            int egzaminas;
+            cin>>egzaminas;
+
+            cout<<endl;
+            cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+
+            int a;
+            cin>>a;
+            while(a!=1||a!=2)
+            {
+                if(a==1)
+                {
+                    vidurkis(nDarSuma, kintamieji, egzaminas);
+                    break;
+                }
+
+                else if(a==2)
+                {
+                    mediana (nDarbas, kintamieji, egzaminas);
+                    break;
+                }
+
+                else
+                {
+                    cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                    cin>>a;
+                }
+
+            }
             break;
-        }
+            }
         else
         {
             cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
