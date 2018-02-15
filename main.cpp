@@ -39,55 +39,72 @@ int main()
     string vardas;
     cin>>vardas;
 
-    cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
-    auto kintamieji=0;                                      //kintamuju kiekis
-    auto talpa=1;                                           //kiek masyve gali tilpti elementu
-    double *nDarbas = new double [talpa];                   //masyvas namu darbu pazymiais saugoti
+    cout<<"1-naudoti masyvus\n2-naudoti vektorius"<<endl;
+    int c;
+    cin>>c;
+    while(c!=1||c!=2){
+    if (c==1){
+        cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+        auto kintamieji=0;                                      //kintamuju kiekis
+        auto talpa=1;                                           //kiek masyve gali tilpti elementu
+        double *nDarbas = new double [talpa];                   //masyvas namu darbu pazymiais saugoti
 
-    auto i=0;                                               //masyvo elementu skaicius
-    for(i=0; i<talpa; i++)                                  //ivedame pazymius
-    {
-        cout<<i+1<<" pazymys: ";
-        cin>>nDarbas[i];
-        kintamieji++;                                       //padidiname kintamuju kieki vienu elementu
-        talpa++;                                            //padidiname talpa vienu elementu
-
-        if (nDarbas[i]==-1) break;
-    }
-
-    auto nDarSuma=0;
-    for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //suskaiciuojame visu pazymiu suma
-
-    cout<<endl;
-    cout<<"Iveskite egzamino pazymi: ";
-    int egzaminas;
-    cin>>egzaminas;
-
-    cout<<endl;
-    cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-    int a;
-    cin>>a;
-    while(a!=1||a!=2)
-    {
-        if(a==1)
+        auto i=0;                                               //masyvo elementu skaicius
+        for(i=0; i<talpa; i++)                                  //ivedame pazymius
         {
-            vidurkis(nDarSuma, i, egzaminas);
-            break;
+            cout<<i+1<<" pazymys: ";
+            cin>>nDarbas[i];
+            kintamieji++;                                       //padidiname kintamuju kieki vienu elementu
+            talpa++;                                            //padidiname talpa vienu elementu
+
+            if (nDarbas[i]==-1) break;
         }
 
-        else if(a==2)
+        auto nDarSuma=0;
+        for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //suskaiciuojame visu pazymiu suma
+
+        cout<<endl;
+        cout<<"Iveskite egzamino pazymi: ";
+        int egzaminas;
+        cin>>egzaminas;
+
+        cout<<endl;
+        cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+        int a;
+        cin>>a;
+        while(a!=1||a!=2)
         {
-            mediana (nDarbas, i, egzaminas);
+            if(a==1)
+            {
+                vidurkis(nDarSuma, i, egzaminas);
+                break;
+            }
+
+            else if(a==2)
+            {
+                mediana (nDarbas, i, egzaminas);
+                break;
+            }
+
+            else
+            {
+                cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                cin>>a;
+            }
+
+        }
+        break;
+        }
+        else if (c==2)
+        {
+
             break;
         }
-
         else
         {
             cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-            cin>>a;
+            cin>>c;
         }
-
     }
-
     return 0;
 }
