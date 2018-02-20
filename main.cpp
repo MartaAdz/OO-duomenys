@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <random>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 void vidurkis(int a, int b, int c){
@@ -61,7 +62,7 @@ void mediana(vector<int>& M, int kiek, int c){
 }
 int main()
 {
-    cout<<"Iveskite studento varda: ";
+    cout<<"Iveskite studento varda ir pavarde: ";
     string vardas;
     cin>>vardas;
 
@@ -70,81 +71,152 @@ int main()
     cin>>c;
     while(c!=1||c!=2){
         if (c==1){
-            cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+            cout<<"1-generuoti pazymius, 2-ivesti pazymius.";
+            int p;
+            cin>>p;
+
             auto kintamieji=0;                                      //kintamuju kiekis
             auto talpa=1;                                           //kiek masyve gali tilpti elementu
-            int *nDarbas = new int [talpa];                   //masyvas namu darbu pazymiais saugoti
+            int *nDarbas = new int [talpa];
 
-            auto i=0;                                               //masyvo elementu skaicius
-            for(i=0; i<talpa; i++)                                  //ivedame pazymius
-            {
-                cout<<i+1<<" pazymys: ";
-                cin>>nDarbas[i];
-                kintamieji++;                                       //padidiname kintamuju kieki vienu elementu
-                talpa++;                                            //padidiname talpa vienu elementu
+            if(p==1){
+                cout<<"Kiek pazymiu norite sugeneruoti?";
+                int kiekis;
+                cin>>kiekis;
+                cout<<"Pazymiai: "<<endl;
 
-                if (nDarbas[i]==-1) break;
-            }
+                std::random_device rd;  //Will be used to obtain a seed for the random number engine
+                std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+                std::uniform_int_distribution<> dis(1, 10);
 
-            auto nDarSuma=0;
-            for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //suskaiciuojame visu pazymiu suma
-
-            cout<<endl;
-            cout<<"Iveskite egzamino pazymi: ";
-            int egzaminas;
-            cin>>egzaminas;
-
-            cout<<endl;
-            cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-            int a;
-            cin>>a;
-            while(a!=1||a!=2)
-            {
-                if(a==1)
+                for (int i=0; i<kiekis; i++)
                 {
-                    vidurkis(nDarSuma, i, egzaminas);
+                    nDarbas[i]=dis(gen);
+                    cout << nDarbas[i] << ' ';
+                }
+
+                auto nDarSuma=0;
+                for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
+
+                cout<<endl;
+
+                int egzaminas=dis(gen);
+                cout<<"egzamino pazymys: "<<egzaminas;
+
+                cout<<endl;
+                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+                int a;
+                cin>>a;
+                while(a!=1||a!=2)
+                {
+                    if(a==1)
+                    {
+                        vidurkis(nDarSuma, kiekis, egzaminas);
+                        break;
+                    }
+
+                    else if(a==2)
+                    {
+                        mediana (nDarbas, kiekis, egzaminas);
+                        break;
+                    }
+
+                    else
+                    {
+                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                        cin>>a;
+                    }
+
+                }
+                break;
+                }
+
+            else if (p==2){
+                cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+
+
+                auto i=0;
+                                                              //masyvo elementu skaicius
+                for(i=0; i<talpa; i++)
+                {
+                    cout<<i+1<<" pazymys: ";
+                    cin>>nDarbas[i];
+                    kintamieji++;
+                    talpa++;
+
+                    if (nDarbas[i]==-1) break;
+                }
+
+                auto nDarSuma=0;
+                for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];   //pazymiu suma
+
+                cout<<endl;
+                cout<<"Iveskite egzamino pazymi: ";
+                int egzaminas;
+                cin>>egzaminas;
+
+                cout<<endl;
+                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+                int a;
+                cin>>a;
+                while(a!=1||a!=2)
+                {
+                    if(a==1)
+                    {
+                        vidurkis(nDarSuma, i, egzaminas);
+                        break;
+                    }
+
+                    else if(a==2)
+                    {
+                        mediana (nDarbas, i, egzaminas);
+                        break;
+                    }
+
+                    else
+                    {
+                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                        cin>>a;
+                    }
+
+                }
                     break;
-                }
-
-                else if(a==2)
-                {
-                    mediana (nDarbas, i, egzaminas);
-                    break;
-                }
-
-                else
-                {
-                    cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-                    cin>>a;
-                }
-
             }
-            break;
-            }
+        }
+
         else if (c==2)
-        {
-            cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+        {   cout<<"1-generuoti pazymius, 2-ivesti pazymius.";
+            int p;
+            cin>>p;
 
             vector<int> nDarbas;
             int pazymys;
 
-            for(int i=0; i<nDarbas.size()+1; i++)
-            {
-                cout<<i+1<<" pazymys: ";
-                cin>>pazymys;
-                nDarbas.push_back(pazymys);
+            if(p==1){
+                cout<<"Kiek pazymiu norite sugeneruoti?";
+                int kiekis;
+                cin>>kiekis;
+                cout<<"Pazymiai: "<<endl;
 
-                if (pazymys==-1) break;
-            }
+                std::random_device rd;  //Will be used to obtain a seed for the random number engine
+                std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
+                std::uniform_int_distribution<> dis(1, 10);
+
+
+                for(int i=0; i<kiekis; i++)
+                {
+                    cout<<i+1<<" pazymys: ";
+                    pazymys=dis(gen);
+                    cout<<pazymys<<" ";
+                    nDarbas.push_back(pazymys);
+                }
 
             auto kintamieji=nDarbas.size()-1;
             auto nDarSuma=0;
             for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
 
-            cout<<endl;
-            cout<<"Iveskite egzamino pazymi: ";
-            int egzaminas;
-            cin>>egzaminas;
+            int egzaminas=dis(gen);
+            cout<<"\nEgzamino pazymys: "<<egzaminas;
 
             cout<<endl;
             cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
@@ -181,4 +253,5 @@ int main()
         }
     }
     return 0;
-}
+}}
+
