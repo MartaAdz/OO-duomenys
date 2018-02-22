@@ -71,6 +71,43 @@ struct studentas{
     int egzaminas;
     vector <int> pazymiai;
 };
+void vidurkis(struct studentas &S){
+
+    auto kintamieji=S.pazymiai.size()-1;
+    auto nDarSuma=0;
+    for(int i=0; i<kintamieji; i++) nDarSuma+=S.pazymiai[i];
+    double galBalas=0.4 * (nDarSuma/kintamieji)+0.6 * S.egzaminas;
+    cout.precision (3);
+    cout<<galBalas;
+
+}
+void mediana(struct studentas &S){
+    int j;
+    auto kiek=S.pazymiai.size()-1;
+	for (int i = 1; i < kiek; i++)
+	{
+		j = i;
+		while (j > 0 && S.pazymiai[j] < S.pazymiai[j - 1])
+		{
+			std::swap(S.pazymiai[j], S.pazymiai[j - 1]); //rikiuojame pazymius
+			j--;
+		}
+	}
+
+    if (j%2==0)
+    {
+        auto galBalas=0.4*S.pazymiai[j / 2]+0.6*S.egzaminas;
+        cout.precision (3);
+        cout<<galBalas;
+    }
+    else
+    {
+        auto galBalas=0.4*(S.pazymiai[j / 2] + S.pazymiai[j / 2 +1])/2+0.6*S.egzaminas;
+        cout.precision (3);
+        cout<<galBalas;
+    }
+
+}
 
 int main()
 {
@@ -80,7 +117,8 @@ int main()
 	int egz;
     auto i=0;
     std::ifstream duomenys("kursiokai.txt");
-    while(! duomenys.eof()){
+    while(! duomenys.eof())
+    {
      	duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz;
      	S.push_back(studentas());
         S[i].vardas=var;
@@ -92,6 +130,14 @@ int main()
         i++;
     }
 
+    for(int j = 0; j < i; j++)
+    {
+        cout<<S[j].vardas<<" "<<S[j].pavarde<<" ";
+        vidurkis(S[j]);
+        cout<<" ";
+        mediana(S[j]);
+        cout<<"\n";
+    }
 
     cout<<"Iveskite studento varda ir pavarde: ";
     string vardas;
