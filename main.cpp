@@ -1,12 +1,14 @@
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <random>
+#include <fstream>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 void vidurkis(int a, int b, int c){
     double galBalas=0.4*(a/b)+0.6*c;
     cout.precision (3);
-    cout<<galBalas;
+    cout<<"Galutinis balas: "<<galBalas;
 }
 void mediana(int M[], int kiek, int c){
     int j;
@@ -24,13 +26,13 @@ void mediana(int M[], int kiek, int c){
     {
         auto galBalas=0.4*M[j / 2]+0.6*c;
         cout.precision (3);
-        cout<<galBalas<<endl;
+        cout<<"Galutinis balas: "<<galBalas<<endl;
     }
     else
     {
         auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
         cout.precision (3);
-        cout<<galBalas<<endl;
+        cout<<"Galutinis balas: "<<galBalas<<endl;
     }
 
 }
@@ -50,19 +52,19 @@ void mediana(vector<int>& M, int kiek, int c){
     {
         auto galBalas=0.4*M[j / 2]+0.6*c;
         cout.precision (3);
-        cout<<galBalas<<endl;
+        cout<<"Galutinis balas: "<<galBalas<<endl;
     }
     else
     {
         auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
         cout.precision (3);
-        cout<<galBalas<<endl;
+        cout<<"Galutinis balas: "<<galBalas<<endl;
     }
 
 }
 int main()
 {
-    cout<<"Iveskite studento varda ir pavarde: ";
+   cout<<"Iveskite studento varda ir pavarde: ";
     string vardas;
     cin>>vardas;
 
@@ -193,6 +195,7 @@ int main()
             int pazymys;
 
             if(p==1){
+
                 cout<<"Kiek pazymiu norite sugeneruoti?";
                 int kiekis;
                 cin>>kiekis;
@@ -211,47 +214,96 @@ int main()
                     nDarbas.push_back(pazymys);
                 }
 
-            auto kintamieji=nDarbas.size()-1;
-            auto nDarSuma=0;
-            for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
+                auto kintamieji=nDarbas.size()-1;
+                auto nDarSuma=0;
+                for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
 
-            int egzaminas=dis(gen);
-            cout<<"\nEgzamino pazymys: "<<egzaminas;
+                int egzaminas=dis(gen);
+                cout<<"\nEgzamino pazymys: "<<egzaminas;
 
-            cout<<endl;
-            cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+                cout<<endl;
+                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
 
-            int a;
-            cin>>a;
-            while(a!=1||a!=2)
+                int a;
+                cin>>a;
+                while(a!=1||a!=2)
+                {
+                    if(a==1)
+                    {
+                        vidurkis(nDarSuma, kintamieji, egzaminas);
+                        break;
+                    }
+
+                    else if(a==2)
+                    {
+                        mediana (nDarbas, kintamieji, egzaminas);
+                        break;
+                    }
+
+                    else
+                    {
+                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                        cin>>a;
+                    }
+                }}
+            else if (p==2)
             {
-                if(a==1)
-                {
-                    vidurkis(nDarSuma, kintamieji, egzaminas);
-                    break;
-                }
+                    cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
 
-                else if(a==2)
-                {
-                    mediana (nDarbas, kintamieji, egzaminas);
-                    break;
-                }
+                    for(int i=0; i<nDarbas.size()+1; i++)
+                     {
+                        cout<<i+1<<" pazymys: ";
+                        cin>>pazymys;
+                        nDarbas.push_back(pazymys);
 
-                else
-                {
-                    cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                        if (pazymys==-1) break;
+                     }
+
+                    auto kintamieji=nDarbas.size()-1;
+                    auto nDarSuma=0;
+                    for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
+
+                    cout<<endl;
+                    cout<<"Iveskite egzamino pazymi: ";
+                    int egzaminas;
+                    cin>>egzaminas;
+
+                    cout<<endl;
+                    cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+
+                    int a;
                     cin>>a;
-                }
+                   while(a!=1||a!=2)
+                    {
+                        if(a==1)
+                        {
+                            vidurkis(nDarSuma, kintamieji, egzaminas);
+                            break;
+                        }
 
-            }
-            break;
-            }
+                        else if(a==2)
+                        {
+                            mediana (nDarbas, kintamieji, egzaminas);
+                            break;
+                        }
+
+                        else
+                        {
+                            cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
+                            cin>>a;
+                        }
+                    }
+                    break;
+                    }
+
         else
         {
             cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
             cin>>c;
         }
-    }
+    }}
+
+
     return 0;
-}}
+}
 
