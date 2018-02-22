@@ -62,9 +62,38 @@ void mediana(vector<int>& M, int kiek, int c){
     }
 
 }
+struct studentas{
+
+    string vardas;
+    string pavarde;
+    double galBalasMed;
+    double galBalasVid;
+    int egzaminas;
+    vector <int> pazymiai;
+};
+
 int main()
 {
-   cout<<"Iveskite studento varda ir pavarde: ";
+	vector<studentas> S;
+	string var, pav;
+	vector <int> paz (3,0);
+	int egz;
+    auto i=0;
+    std::ifstream duomenys("kursiokai.txt");
+    while(! duomenys.eof()){
+     	duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz;
+     	S.push_back(studentas());
+        S[i].vardas=var;
+        S[i].pavarde=pav;
+        S[i].pazymiai.push_back(paz[0]);
+        S[i].pazymiai.push_back(paz[1]);
+        S[i].pazymiai.push_back(paz[2]);
+        S[i].egzaminas=egz;
+        i++;
+    }
+
+
+    cout<<"Iveskite studento varda ir pavarde: ";
     string vardas;
     cin>>vardas;
 
@@ -187,7 +216,7 @@ int main()
         }
 
         else if (c==2)
-        {   cout<<"1-generuoti pazymius, 2-ivesti pazymius.";
+        {   cout<<"1-generuoti pazymius, 2-ivesti pazymius. ";
             int p;
             cin>>p;
 
@@ -273,7 +302,7 @@ int main()
 
                     int a;
                     cin>>a;
-                   while(a!=1||a!=2)
+                    while(a!=1||a!=2)
                     {
                         if(a==1)
                         {
@@ -294,16 +323,21 @@ int main()
                         }
                     }
                     break;
-                    }
+                }
 
         else
         {
             cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
             cin>>c;
         }
-    }}
-
-
-    return 0;
+    }
 }
+
+
+
+ return 0;
+}
+
+
+
 
