@@ -2,5 +2,5 @@ Augustinas Makevicius 8 6 9 10
 Paulius Pocius 6 7 4 9
 Justas Krukonis 5 9 7 5
 Timas Jackus 7 3 5 10
-Povilas Pavardauskas 3 5 8 10
+Povilas Pavardauskas 3 5 8 4
 Julija Pavardyte 2 5 7 10

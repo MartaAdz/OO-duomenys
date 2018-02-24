@@ -4,7 +4,7 @@
 #include <random>
 #include <fstream>
 
-using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
+using std::cout; using std::cin; using std::endl; using std::string; using std::vector; using std::setw;
 void vidurkis(int a, int b, int c){
     double galBalas=0.4*(a/b)+0.6*c;
     cout.precision (3);
@@ -78,7 +78,7 @@ void vidurkis(struct studentas &S){
     for(int i=0; i<kintamieji; i++) nDarSuma+=S.pazymiai[i];
     double galBalas=0.4 * (nDarSuma/kintamieji)+0.6 * S.egzaminas;
     cout.precision (3);
-    cout<<galBalas;
+    cout<<setw(20)<<galBalas;
 
 }
 void mediana(struct studentas &S){
@@ -98,13 +98,13 @@ void mediana(struct studentas &S){
     {
         auto galBalas=0.4*S.pazymiai[j / 2]+0.6*S.egzaminas;
         cout.precision (3);
-        cout<<galBalas;
+        cout<<setw(20)<<galBalas;
     }
     else
     {
         auto galBalas=0.4*(S.pazymiai[j / 2] + S.pazymiai[j / 2 +1])/2+0.6*S.egzaminas;
         cout.precision (3);
-        cout<<galBalas;
+        cout<<setw(20)<<galBalas;
     }
 
 }
@@ -129,16 +129,28 @@ int main()
         S[i].egzaminas=egz;
         i++;
     }
-
-    for(int j = 0; j < i; j++)
+    cout<<std::left<<setw(20)<<"Vardas"
+                    <<setw(20)<<"Pavarde"
+                    <<setw(20)<<"Galutinis-vidurkis"
+                    <<setw(20)<<"Galutinis-mediana"
+                    <<"\n";
+    for(int j = 0; j < i; j++) //rikiuojame studentus pagal pavarde
     {
-        cout<<S[j].vardas<<" "<<S[j].pavarde<<" ";
+        int k=j;
+        while (S[k].pavarde < S[k - 1].pavarde)
+		{
+			std::swap(S[k], S[k - 1]);
+			k--;
+        }
+    }
+    for(int j=0; j<i;j++)
+    {
+        cout<<std::left<<setw(20)<<S[j].vardas
+                    <<setw(20)<<S[j].pavarde;
         vidurkis(S[j]);
-        cout<<" ";
         mediana(S[j]);
         cout<<"\n";
     }
-
     cout<<"Iveskite studento varda ir pavarde: ";
     string vardas;
     cin>>vardas;
