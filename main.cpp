@@ -5,49 +5,12 @@
 #include <fstream>
 #include "studentas.h"
 #include "vidurkis.cpp"
-//#include "medianaMas.cpp"
 #include "mediana.cpp"
+#include "mediana_nuskaitant.cpp"
+#include "vidurkis_nuskaitant.cpp"
 
-using std::cout; using std::cin; using std::endl; using std::string; using std::vector; using std::setw;
-
-
-void vidurkis(struct studentas &S){
-
-    auto kintamieji=S.pazymiai.size()-1;
-    auto nDarSuma=0;
-    for(int i=0; i<kintamieji; i++) nDarSuma+=S.pazymiai[i];
-    double galBalas=0.4 * (nDarSuma/kintamieji)+0.6 * S.egzaminas;
-    cout.precision (3);
-    cout<<setw(20)<<galBalas;
-
-}
-void mediana1(struct studentas &S){
-    int j;
-    auto kiek=S.pazymiai.size()-1;
-	for (int i = 1; i < kiek; i++)
-	{
-		j = i;
-		while (j > 0 && S.pazymiai[j] < S.pazymiai[j - 1])
-		{
-			std::swap(S.pazymiai[j], S.pazymiai[j - 1]); //rikiuojame pazymius
-			j--;
-		}
-	}
-
-    if (j%2==0)
-    {
-        auto galBalas=0.4*S.pazymiai[j / 2]+0.6*S.egzaminas;
-        cout.precision (3);
-        cout<<setw(20)<<galBalas;
-    }
-    else
-    {
-        auto galBalas=0.4*(S.pazymiai[j / 2] + S.pazymiai[j / 2 +1])/2+0.6*S.egzaminas;
-        cout.precision (3);
-        cout<<setw(20)<<galBalas;
-    }
-
-}
+using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
+using std::setw; using std::swap;
 
 int main()
 {
@@ -98,7 +61,7 @@ int main()
             int k=j;
             while (S[k].pavarde < S[k - 1].pavarde)
             {
-                std::swap(S[k], S[k - 1]);
+                swap(S[k], S[k - 1]);
                 k--;
             }
         }

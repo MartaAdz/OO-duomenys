@@ -1,14 +1,15 @@
 #include <iostream>
 #include <vector>
-using std::cout; using std::endl; using std::vector;
-void mediana (vector<int> M, int kiek, int c){
+
+using std::cout; using std::endl; using std::vector; using std:: swap;
+void mediana (vector<int>& M, int kiek, int c){
     int j;
 	for (int i = 1; i < kiek; i++)
 	{
 		j = i;
 		while (j > 0 && M[j] < M[j - 1])
 		{
-			std::swap(M[j], M[j - 1]); //rikiuojame pazymius
+			swap (M[j], M[j - 1]); //rikiuojame pazymius
 			j--;
 		}
 	}
