@@ -4,10 +4,8 @@
 #include <random>
 #include <fstream>
 #include "studentas.h"
-#include "vidurkis.cpp"
-#include "mediana.cpp"
-#include "mediana_nuskaitant.cpp"
-#include "vidurkis_nuskaitant.cpp"
+#include "vidurkis.h"
+#include "mediana.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
@@ -70,15 +68,18 @@ int main()
             cout<<std::left<<setw(20)<<S[j].vardas
                         <<setw(20)<<S[j].pavarde;
             vidurkis(S[j]);
-            mediana1(S[j]);
+            mediana(S[j]);
             cout<<"\n";
         }
     }
     else if(p==2) {
+        vector<studentas> S;
         cout<<"Iveskite studento varda ir pavarde: ";
-        string vardas;
-        cin>>vardas;
+        string var, pav;
+        cin>>var;
+        cin>>pav;
 
+        S[1].vardas=var;
         cout<<"1-generuoti pazymius, 2-ivesti pazymius. ";
         int p;
         cin>>p;
