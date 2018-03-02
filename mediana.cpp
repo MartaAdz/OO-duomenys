@@ -20,19 +20,19 @@ double mediana(vector<int>& M, int kiek, int c){
     if (j%2==0)
     {
         auto galBalas=0.4*M[j / 2]+0.6*c;
-        //cout.precision (3);
-        cout<<"Galutinis balas: ";
+        cout.precision (3);
+        cout<<"Galutinis balas: ";              //greiciausiai reikia isvesti galutini bala ir plius returnin gal bala
         return galBalas;
     }
     else
     {
         auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
-        //cout.precision (3);
+        cout.precision (3);
         cout<<"Galutinis balas: ";
         return galBalas;
     }
 }
-double mediana(studentas &S){
+void mediana(studentas &S){
     int j;
     auto kiek=S.pazymiai.size()-1;
 	for (int i = 1; i < kiek; i++)
@@ -48,16 +48,14 @@ double mediana(studentas &S){
     if (j%2==0)
     {
         auto galBalas=0.4*S.pazymiai[j / 2]+0.6*S.egzaminas;
-        //cout.precision (3);
-        //cout<<setw(20)<<galBalas;
-        return galBalas;
+        cout.precision (3);
+        cout<<setw(20)<<galBalas;
     }
     else
     {
         auto galBalas=0.4*(S.pazymiai[j / 2] + S.pazymiai[j / 2 +1])/2+0.6*S.egzaminas;
-        //cout.precision (3);
-        //cout<<setw(20)<<galBalas;
-        return galBalas;
+        cout.precision (3);
+        cout<<setw(20)<<galBalas;
     }
 }
 
