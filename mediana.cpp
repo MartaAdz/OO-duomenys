@@ -5,7 +5,7 @@
 #include "mediana.h"
 
 using std::cout; using std::endl; using std::vector; using std:: swap; using std::setw;
-void mediana(vector<int>& M, int kiek, int c){
+double mediana(vector<int>& M, int kiek, int c){
     int j;
 	for (int i = 1; i < kiek; i++)
 	{
@@ -20,17 +20,19 @@ void mediana(vector<int>& M, int kiek, int c){
     if (j%2==0)
     {
         auto galBalas=0.4*M[j / 2]+0.6*c;
-        cout.precision (3);
-        cout<<"Galutinis balas: "<<galBalas<<endl;
+        //cout.precision (3);
+        cout<<"Galutinis balas: ";
+        return galBalas;
     }
     else
     {
         auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
-        cout.precision (3);
-        cout<<"Galutinis balas: "<<galBalas<<endl;
+        //cout.precision (3);
+        cout<<"Galutinis balas: ";
+        return galBalas;
     }
 }
-void mediana(studentas &S){
+double mediana(studentas &S){
     int j;
     auto kiek=S.pazymiai.size()-1;
 	for (int i = 1; i < kiek; i++)
@@ -46,14 +48,16 @@ void mediana(studentas &S){
     if (j%2==0)
     {
         auto galBalas=0.4*S.pazymiai[j / 2]+0.6*S.egzaminas;
-        cout.precision (3);
-        cout<<setw(20)<<galBalas;
+        //cout.precision (3);
+        //cout<<setw(20)<<galBalas;
+        return galBalas;
     }
     else
     {
         auto galBalas=0.4*(S.pazymiai[j / 2] + S.pazymiai[j / 2 +1])/2+0.6*S.egzaminas;
-        cout.precision (3);
-        cout<<setw(20)<<galBalas;
+        //cout.precision (3);
+        //cout<<setw(20)<<galBalas;
+        return galBalas;
     }
 }
 

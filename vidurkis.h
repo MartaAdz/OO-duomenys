@@ -1,5 +1,5 @@
 #ifndef VIDURKIS_H
 #define VIDURKIS_H
-    void vidurkis(int a, int b, int c);
-    void vidurkis(studentas &S);
+    double vidurkis(int a, int b, int c);
+    double vidurkis(studentas &S);
 #endif
