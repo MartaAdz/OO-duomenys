@@ -46,6 +46,7 @@ int main()
             S[i].pazymiai.push_back(paz[1]);
             S[i].pazymiai.push_back(paz[2]);
             S[i].egzaminas=egz;
+            S.push_back(studentas());
             i++;
         }
         cout<<std::left<<setw(20)<<"Vardas"
