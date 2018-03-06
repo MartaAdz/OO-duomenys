@@ -35,6 +35,10 @@ int main()
             cout<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
+        vector<studentas> geras;
+        vector<studentas> blogas;
+        auto j=0;
+        auto k=0;
 
         while(!duomenys.eof())
         {
@@ -45,6 +49,21 @@ int main()
             S[i].pazymiai.push_back(paz[0]);
             S[i].pazymiai.push_back(paz[1]);
             S[i].pazymiai.push_back(paz[2]);
+
+                if ((paz[0]+paz[1]+paz[2])<=18) //10*3*60/100=18
+                {
+                    blogas.push_back(studentas());
+                    blogas[j]=(S[i]);
+                    blogas.push_back(studentas());
+                    j++;
+                }
+
+                else {
+                    geras.push_back(studentas());
+                    geras[k]=(S[i]);
+                    geras.push_back(studentas());
+                    k++;
+                }
             S[i].egzaminas=egz;
             S.push_back(studentas());
             i++;
@@ -63,6 +82,7 @@ int main()
                 k--;
             }
         }
+        cout<<"visi";
         for(int j=0; j<i;j++)
         {
             cout<<std::left<<setw(20)<<S[j].vardas
@@ -71,6 +91,7 @@ int main()
             mediana(S[j]);
             cout<<"\n";
         }
+
     }
     else if(p==2) {
 
