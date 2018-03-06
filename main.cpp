@@ -6,6 +6,7 @@
 #include "studentas.h"
 #include "vidurkis.h"
 #include "mediana.h"
+#include "generavimas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
@@ -13,8 +14,8 @@ using std::setw; using std::swap;
 int main()
 {
     cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
-    int p;
-    cin>>p;
+    int p=3;
+   // cin>>p;
 
     if(p==1){
         vector<studentas> S;
@@ -82,7 +83,7 @@ int main()
                 k--;
             }
         }
-        cout<<"visi";
+
         for(int j=0; j<i;j++)
         {
             cout<<std::left<<setw(20)<<S[j].vardas
@@ -94,6 +95,7 @@ int main()
 
     }
     else if(p==2) {
+
 
         auto d=1;
         auto i=0;
@@ -226,6 +228,12 @@ int main()
         cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
         cin>>d;
     }
+}
+    else if(p==3){
+
+        random ();
+
+
 }
  return 0;
 }
