@@ -13,16 +13,15 @@ using std::setw; using std::swap;
 
 int main()
 {
-    cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
-    int p=3;
-   // cin>>p;
+    //cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
+
+    int p=1;
+    //cin>>p;
 
     if(p==1){
-        vector<studentas> S;
-        string var, pav;
-        vector <int> paz (3,0);
-        int egz;
-        auto i=0;
+
+        random (100);
+
         std::ifstream duomenys("kursiokai.txt");
 
         try{
@@ -36,6 +35,12 @@ int main()
             cout<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
+
+        vector<studentas> S;
+        string var, pav;
+        vector <int> paz (3,0);
+        int egz, bVid, bMed;
+        auto i=0;
         vector<studentas> geras;
         vector<studentas> blogas;
         auto j=0;
@@ -43,7 +48,7 @@ int main()
 
         while(!duomenys.eof())
         {
-            duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz;
+            duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz >>bVid>>bMed;
             S.push_back(studentas());
             S[i].vardas=var;
             S[i].pavarde=pav;
@@ -229,11 +234,6 @@ int main()
         cin>>d;
     }
 }
-    else if(p==3){
 
-        random ();
-
-
-}
  return 0;
 }

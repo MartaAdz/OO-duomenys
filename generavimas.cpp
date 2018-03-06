@@ -8,12 +8,12 @@
 #include "mediana.h"
 using std::cout; using std::endl; using std::vector; using std::string;
 
-void random(){
+void random(int a){
         vector<studentas> S;
         vector<int> nDarbas(3,0);
         int pazymys;
-        std::ofstream  f("failas.dat");
-        for(int i=0; i<=100; i++)
+        std::ofstream  f("kursiokai.txt");
+        for(int i=0; i<a; i++)
         {
             S.push_back(studentas());
 
@@ -38,7 +38,6 @@ void random(){
 
             S[i].pazymiai=nDarbas;
             int egzaminas=dis(gen);
-            cout<<"\nEgzamino pazymys: "<<egzaminas;
             S[i].egzaminas=egzaminas;
 
                     auto nDarSuma=0;

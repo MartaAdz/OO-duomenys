@@ -1,4 +1,4 @@
 #ifndef generavimas_H
 #define generavimas_H
-    void random();
+    void random(int a);
 #endif
