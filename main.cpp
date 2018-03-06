@@ -36,7 +36,7 @@ int main()
             exit(1);
         }
 
-        while(! duomenys.eof())
+        while(!duomenys.eof())
         {
             duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz;
             S.push_back(studentas());
@@ -75,8 +75,10 @@ int main()
 
         auto d=1;
         auto i=0;
+        vector<studentas> S;
+        S.push_back(studentas());
         while(d!=2){
-            vector<studentas> S;
+
             cout<<"Iveskite studento varda ir pavarde: ";
             string var, pav;
             cin>>var;
@@ -135,7 +137,7 @@ int main()
 
                     else if(a==2)
                     {
-                         S[i].galBalasMed=mediana (nDarbas, kintamieji, egzaminas);
+                        S[i].galBalasMed=mediana (nDarbas, kintamieji, egzaminas);
                         break;
                     }
 
@@ -196,17 +198,12 @@ int main()
 
                     break;
             }
-
-
         }
         i++;
-        cout<<"1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
+        S.push_back(studentas());
+        cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
         cin>>d;
     }
 }
  return 0;
 }
-
-
-
-
