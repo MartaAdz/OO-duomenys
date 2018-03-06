@@ -10,7 +10,6 @@
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
-
 int main()
 {
     //cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
@@ -20,7 +19,7 @@ int main()
 
     if(p==1){
 
-        random (100);
+        random (624); //luzta ties 624
 
         std::ifstream duomenys("kursiokai.txt");
 
@@ -81,11 +80,10 @@ int main()
                         <<"\n";
         for(int j = 0; j < i; j++) //rikiuojame studentus pagal pavarde
         {
-            int k=j;
-            while (S[k].pavarde < S[k - 1].pavarde)
-            {
-                swap(S[k], S[k - 1]);
-                k--;
+            while (S[j].pavarde < S[j - 1].pavarde)
+            {  cout<<"lox";
+                swap(S[j], S[j - 1]);
+                j--;
             }
         }
 
