@@ -3,6 +3,7 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include <algorithm>
 #include "studentas.h"
 #include "vidurkis.h"
 #include "mediana.h"
@@ -18,9 +19,9 @@ int main()
     //cin>>p;
 
     if(p==1){
-
-        random (624); //luzta ties 624
-
+        int a=10000;
+        random (a);
+        cout<<"po random";
         std::ifstream duomenys("kursiokai.txt");
 
         try{
@@ -54,8 +55,7 @@ int main()
             S[i].pazymiai.push_back(paz[0]);
             S[i].pazymiai.push_back(paz[1]);
             S[i].pazymiai.push_back(paz[2]);
-
-                if ((paz[0]+paz[1]+paz[2])<=18) //10*3*60/100=18
+            if ((paz[0]+paz[1]+paz[2])<=18) //10*3*60/100=18
                 {
                     blogas.push_back(studentas());
                     blogas[j]=(S[i]);
@@ -72,32 +72,47 @@ int main()
             S[i].egzaminas=egz;
             S.push_back(studentas());
             i++;
+            if (i==a) break;
         }
+
         cout<<std::left<<setw(20)<<"Vardas"
                         <<setw(20)<<"Pavarde"
                         <<setw(20)<<"Galutinis-vidurkis"
                         <<setw(20)<<"Galutinis-mediana"
                         <<"\n";
-        for(int j = 0; j < i; j++) //rikiuojame studentus pagal pavarde
+
+
+        for(int a = 1; a < i; a++) //rikiuojame studentus pagal pavarde
         {
-            while (S[j].pavarde < S[j - 1].pavarde)
-            {  cout<<"lox";
-                swap(S[j], S[j - 1]);
-                j--;
+            while (S[a].pavarde < S[a - 1].pavarde)
+            {
+                swap(S[a], S[a - 1]);
+                a--;
             }
         }
 
-        for(int j=0; j<i;j++)
+        for(int a=0; a<i; a++)
         {
-            cout<<std::left<<setw(20)<<S[j].vardas
-                        <<setw(20)<<S[j].pavarde;
-            vidurkis(S[j]);
-            mediana(S[j]);
+            cout<<std::left<<setw(20)<<S[a].vardas
+                        <<setw(20)<<S[a].pavarde;
+            vidurkis(S[a]);
+            mediana(S[a]);
             cout<<"\n";
         }
-
+        cout<<"blogas";
+        for(int a=0; a<j; a++)
+        {
+            cout<<std::left<<setw(20)<<blogas[a].vardas
+                        <<setw(20)<<blogas[a].pavarde;
+        }
+        cout<<"geras";
+        for(int a=0; a<k; a++)
+        {
+            cout<<std::left<<setw(20)<<geras[a].vardas
+                        <<setw(20)<<geras[a].pavarde;
+        }
     }
-    else if(p==2) {
+    /*else if(p==2) {
 
 
         auto d=1;
@@ -232,6 +247,6 @@ int main()
         cin>>d;
     }
 }
-
+*/
  return 0;
 }
