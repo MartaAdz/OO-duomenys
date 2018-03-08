@@ -8,20 +8,20 @@
 #include "vidurkis.h"
 #include "mediana.h"
 #include "generavimas.h"
+#include "isvedimas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
 int main()
 {
-    //cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
+    cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
 
-    int p=1;
-    //cin>>p;
+    int p;
+    cin>>p;
 
     if(p==1){
-        int a=10000;
+        unsigned int a=1000;
         random (a);
-        cout<<"po random";
         std::ifstream duomenys("kursiokai.txt");
 
         try{
@@ -99,20 +99,9 @@ int main()
             mediana(S[a]);
             cout<<"\n";
         }
-        cout<<"blogas";
-        for(int a=0; a<j; a++)
-        {
-            cout<<std::left<<setw(20)<<blogas[a].vardas
-                        <<setw(20)<<blogas[a].pavarde;
-        }
-        cout<<"geras";
-        for(int a=0; a<k; a++)
-        {
-            cout<<std::left<<setw(20)<<geras[a].vardas
-                        <<setw(20)<<geras[a].pavarde;
-        }
+
     }
-    /*else if(p==2) {
+    else if(p==2) {
 
 
         auto d=1;
@@ -166,30 +155,11 @@ int main()
 
                 cout<<endl;
                 cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-                int a;
-                cin>>a;
 
-                while(a!=1||a!=2)
-                {
-                    if(a==1)
-                    {
-                        S[i].galBalasVid=vidurkis(nDarSuma, kintamieji, egzaminas);
-                        break;
-                    }
+                pasirinkimas(S[i], nDarbas, kintamieji, egzaminas);
 
-                    else if(a==2)
-                    {
-                        S[i].galBalasMed=mediana (nDarbas, kintamieji, egzaminas);
-                        break;
-                    }
-
-                    else
-                    {
-                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-                        cin>>a;
-                    }
-                }}
-            else if (p==2)
+            }
+             else if (p==2)
             {
                 cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
 
@@ -215,38 +185,14 @@ int main()
 
                 cout<<endl;
                 cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-
-                int a;
-                cin>>a;
-                while(a!=1||a!=2)
-                {
-                    if(a==1)
-                    {
-                        S[i].galBalasVid=vidurkis(nDarSuma, kintamieji, egzaminas);
-                        break;
-                    }
-
-                    else if(a==2)
-                    {
-                        S[i].galBalasMed=mediana (nDarbas, kintamieji, egzaminas);
-                        break;
-                    }
-
-                    else
-                    {
-                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-                        cin>>a;
-                    }
-
-                    break;
+                pasirinkimas(S[i], nDarbas, kintamieji, egzaminas);
             }
-        }
         i++;
         S.push_back(studentas());
         cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
         cin>>d;
     }
 }
-*/
+
  return 0;
 }

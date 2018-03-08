@@ -20,15 +20,11 @@ double mediana(vector<int>& M, int kiek, int c){
     if (j%2==0)
     {
         auto galBalas=0.4*M[j / 2]+0.6*c;
-        cout.precision (3);
-       // cout<<"Galutinis balas: "<< galBalas;
         return galBalas;
     }
     else
     {
         auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*c;
-        cout.precision (3);
-        //cout<<"Galutinis balas: "<<galBalas;
         return galBalas;
     }
 }
