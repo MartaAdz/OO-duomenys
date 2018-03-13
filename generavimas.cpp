@@ -7,10 +7,10 @@
 #include "mediana.h"
 using std::cout; using std::endl; using std::vector; using std::string; using std::cin;
 
-void random(unsigned int a){
+void studentu_generavimas(unsigned int studentu_kiekis){
         vector<int> nDarbas;
         std::ofstream  f("kursiokai.txt");
-        for(int i=0; i<a; i++)
+        for(int i=0; i<studentu_kiekis; i++)
         {
             f <<  "vardas" << std::to_string(i) <<" "<<"pavarde"<< std::to_string(i)<<" ";
 
@@ -30,7 +30,7 @@ void random(unsigned int a){
                     auto nDarSuma=0;
                     for(int i=0; i<3; i++) nDarSuma+=nDarbas[i];
 
-            f<<vidurkis(nDarSuma, 3, egzaminas)<<" "<<mediana (nDarbas, 3, egzaminas)<<" "<<egzaminas;
+            f<<egzaminas<<endl;
 
     }
 }

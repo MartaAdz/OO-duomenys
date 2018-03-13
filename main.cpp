@@ -9,6 +9,7 @@
 #include "mediana.h"
 #include "generavimas.h"
 #include "isvedimas.h"
+#include "nuskaitymas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
@@ -20,10 +21,10 @@ int main()
     cin>>p;
 
     if(p==1){
-        unsigned int a;
+        unsigned int stud_kiekis;
         cout<<"kiek studentu sugeneruoti: ";
-        cin>>a;
-        random (a);
+        cin>>stud_kiekis;
+        studentu_generavimas(stud_kiekis);
         std::ifstream duomenys("kursiokai.txt");
 
         try{
@@ -37,70 +38,24 @@ int main()
             cout<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
-
         vector<studentas> S;
-        string var, pav;
-        vector <int> paz (3,0);
-        int egz, bVid, bMed;
-        auto i=0;
-        vector<studentas> geras;
-        vector<studentas> blogas;
-        blogas.push_back(studentas());
-        geras.push_back(studentas());
-        auto j=0;
-        auto k=0;
-
-        while(!duomenys.eof())
-        {
-            duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz >>bVid>>bMed;
-            S.push_back(studentas());
-            S[i].vardas=var;
-            S[i].pavarde=pav;
-            S[i].pazymiai.push_back(paz[0]);
-            S[i].pazymiai.push_back(paz[1]);
-            S[i].pazymiai.push_back(paz[2]);
-            if ((paz[0]+paz[1]+paz[2])<=18) //10*3*60/100=18
-            {
-                blogas.push_back(S[i]);
-                j++;
-            }
-
-            else
-            {
-                geras.push_back(S[i]);
-                k++;
-            }
-
-            S[i].egzaminas=egz;
-            S.push_back(studentas());
-            i++;
-            if (i==a) break;
-        }
-
+        nuskaitymas (S, stud_kiekis, duomenys);
         cout<<std::left<<setw(20)<<"Vardas"
                         <<setw(20)<<"Pavarde"
                         <<setw(20)<<"Galutinis-vidurkis"
                         <<setw(20)<<"Galutinis-mediana"
                         <<"\n";
+        stud_isvedimas(S);
 
+//        for(int b = 1; b < i; b++) //rikiuojame studentus pagal pavarde
+//        {
+//            while (S[b].pavarde < S[b - 1].pavarde)
+//            {
+//                swap(S[b], S[b - 1]);
+//                b--;
+//            }
+//        }
 
-        for(int b = 1; b < i; b++) //rikiuojame studentus pagal pavarde
-        {
-            while (S[b].pavarde < S[b - 1].pavarde)
-            {
-                swap(S[b], S[b - 1]);
-                b--;
-            }
-        }
-
-        for(int c=0; c<i; c++)
-        {
-            cout<<std::left<<setw(20)<<S[c].vardas
-                        <<setw(20)<<S[c].pavarde;
-            vidurkis(S[c]);
-            mediana(S[c]);
-            cout<<"\n";
-        }
 
     }
     else if(p==2) {
