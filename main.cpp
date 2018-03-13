@@ -45,6 +45,8 @@ int main()
         auto i=0;
         vector<studentas> geras;
         vector<studentas> blogas;
+        blogas.push_back(studentas());
+        geras.push_back(studentas());
         auto j=0;
         auto k=0;
 
@@ -58,19 +60,17 @@ int main()
             S[i].pazymiai.push_back(paz[1]);
             S[i].pazymiai.push_back(paz[2]);
             if ((paz[0]+paz[1]+paz[2])<=18) //10*3*60/100=18
-                {
-                    blogas.push_back(studentas());
-                    blogas[j]=(S[i]);
-                    blogas.push_back(studentas());
-                    j++;
-                }
+            {
+                blogas.push_back(S[i]);
+                j++;
+            }
 
-                else {
-                    geras.push_back(studentas());
-                    geras[k]=(S[i]);
-                    geras.push_back(studentas());
-                    k++;
-                }
+            else
+            {
+                geras.push_back(S[i]);
+                k++;
+            }
+
             S[i].egzaminas=egz;
             S.push_back(studentas());
             i++;
@@ -84,21 +84,21 @@ int main()
                         <<"\n";
 
 
-        for(int a = 1; a < i; a++) //rikiuojame studentus pagal pavarde
+        for(int b = 1; b < i; b++) //rikiuojame studentus pagal pavarde
         {
-            while (S[a].pavarde < S[a - 1].pavarde)
+            while (S[b].pavarde < S[b - 1].pavarde)
             {
-                swap(S[a], S[a - 1]);
-                a--;
+                swap(S[b], S[b - 1]);
+                b--;
             }
         }
 
-        for(int a=0; a<i; a++)
+        for(int c=0; c<i; c++)
         {
-            cout<<std::left<<setw(20)<<S[a].vardas
-                        <<setw(20)<<S[a].pavarde;
-            vidurkis(S[a]);
-            mediana(S[a]);
+            cout<<std::left<<setw(20)<<S[c].vardas
+                        <<setw(20)<<S[c].pavarde;
+            vidurkis(S[c]);
+            mediana(S[c]);
             cout<<"\n";
         }
 
