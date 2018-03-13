@@ -11,17 +11,22 @@
 
 using std::cout; using std::cin; using std::endl; using std::vector;
 
-    void pasirinkimas(studentas &S, vector<int> nDarbas, int kintamieji, int egzaminas ){
+    void pasirinkimas(studentas &S){
+                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
                 int a;
                 cin>>a;
+                auto kintamieji=S.pazymiai.size()-1;
+
                 while(a!=1||a!=2)
                 {
+
                     if(a==1)
                     {
-                        auto kintamieji=nDarbas.size()-1;
+
                         auto nDarSuma=0;
-                        for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
-                        S.galBalasVid=vidurkis(nDarSuma, kintamieji, egzaminas);
+                        for(int i=0; i<kintamieji; i++) nDarSuma+=S.pazymiai[i];
+
+                        S.galBalasVid=vidurkis(nDarSuma, kintamieji, S.egzaminas);
                         cout.precision(3);
                         cout<<S.galBalasVid;
                         break;
@@ -29,7 +34,7 @@ using std::cout; using std::cin; using std::endl; using std::vector;
 
                     else if(a==2)
                     {
-                        S.galBalasMed=mediana (nDarbas, kintamieji, egzaminas);
+                        S.galBalasMed=mediana (S.pazymiai, kintamieji, S.egzaminas);
                         cout.precision (3);
                         cout<<S.galBalasMed;
                         break;

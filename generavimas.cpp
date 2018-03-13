@@ -5,7 +5,7 @@
 #include <fstream>
 #include "vidurkis.h"
 #include "mediana.h"
-using std::cout; using std::endl; using std::vector; using std::string;
+using std::cout; using std::endl; using std::vector; using std::string; using std::cin;
 
 void random(unsigned int a){
         vector<int> nDarbas;
@@ -33,5 +33,19 @@ void random(unsigned int a){
             f<<vidurkis(nDarSuma, 3, egzaminas)<<" "<<mediana (nDarbas, 3, egzaminas)<<" "<<egzaminas;
 
     }
+}
+
+void iverciai(studentas &S, int kiekis){
+
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::uniform_int_distribution<> dis(1, 10);
+
+                vector<int> nDarbas;
+                nDarbas.push_back(int());
+                for(int i=0; i<kiekis; i++) nDarbas.push_back(dis(gen));
+                S.pazymiai=nDarbas;
+
+                S.egzaminas=dis(gen);
 
 }

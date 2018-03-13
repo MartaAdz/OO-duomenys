@@ -20,7 +20,9 @@ int main()
     cin>>p;
 
     if(p==1){
-        unsigned int a=1000;
+        unsigned int a;
+        cout<<"kiek studentu sugeneruoti: ";
+        cin>>a;
         random (a);
         std::ifstream duomenys("kursiokai.txt");
 
@@ -102,8 +104,6 @@ int main()
 
     }
     else if(p==2) {
-
-
         auto d=1;
         auto i=0;
         vector<studentas> S;
@@ -121,61 +121,37 @@ int main()
             int p;
             cin>>p;
 
-            vector<int> nDarbas;
-            int pazymys;
 
             if(p==1){
+
+                std::random_device rd;
+                std::mt19937 gen(rd());
+                std::uniform_int_distribution<> dis(1, 10);
 
                 cout<<"Kiek pazymiu norite sugeneruoti?";
                 int kiekis;
                 cin>>kiekis;
-                cout<<"Pazymiai: "<<endl;
 
-                std::random_device rd;  //Will be used to obtain a seed for the random number engine
-                std::mt19937 gen(rd()); //Standard mersenne_twister_engine seeded with rd()
-                std::uniform_int_distribution<> dis(1, 10);
-
-
-                for(int i=0; i<kiekis; i++)
-                {
-                    cout<<i+1<<" pazymys: ";
-                    pazymys=dis(gen);
-                    cout<<pazymys<<" ";
-                    nDarbas.push_back(pazymys);
-                }
-
-                S[i].pazymiai=nDarbas;
-                auto kintamieji=nDarbas.size()-1;
-                auto nDarSuma=0;
-                for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
-
-                int egzaminas=dis(gen);
-                cout<<"\nEgzamino pazymys: "<<egzaminas;
-                S[i].egzaminas=egzaminas;
+                iverciai (S[i],kiekis);
+                for(int j=1;j<kiekis;j++) cout<<S[i].pazymiai[j]; //isveda pazymius
 
                 cout<<endl;
-                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
 
-                pasirinkimas(S[i], nDarbas, kintamieji, egzaminas);
+                pasirinkimas(S[i]);
 
             }
              else if (p==2)
             {
                 cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
-
-                for(int i=0; i<nDarbas.size()+1; i++)
+                int pazymys;
+                for(int j=0; i<S[i].pazymiai.size()+1; j++)
                 {
-                    cout<<i+1<<" pazymys: ";
+                    cout<<j+1<<" pazymys: ";
                     cin>>pazymys;
-                    nDarbas.push_back(pazymys);
+                    S[i].pazymiai.push_back(pazymys);
 
                     if (pazymys==-1) break;
                 }
-
-                S[i].pazymiai=nDarbas;
-                auto kintamieji=nDarbas.size()-1;
-                auto nDarSuma=0;
-                for(int i=0; i<kintamieji; i++) nDarSuma+=nDarbas[i];
 
                 cout<<endl;
                 cout<<"Iveskite egzamino pazymi: ";
@@ -184,8 +160,7 @@ int main()
                 S[i].egzaminas=egzaminas;
 
                 cout<<endl;
-                cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
-                pasirinkimas(S[i], nDarbas, kintamieji, egzaminas);
+                pasirinkimas(S[i]);
             }
         i++;
         S.push_back(studentas());
