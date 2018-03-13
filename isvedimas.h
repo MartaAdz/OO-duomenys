@@ -1,6 +1,6 @@
 #ifndef isvedimas_H
 #define isvedimas_H
-#include <vector>
+#include "studentas.h"
     void pasirinkimas(studentas &S);
-    void stud_isvedimas(std::vector<studentas>S);
+    void stud_isvedimas(std::vector<studentas>& S);
 #endif

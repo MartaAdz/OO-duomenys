@@ -10,6 +10,7 @@
 #include "generavimas.h"
 #include "isvedimas.h"
 #include "nuskaitymas.h"
+#include "rikiavimas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
@@ -45,16 +46,10 @@ int main()
                         <<setw(20)<<"Galutinis-vidurkis"
                         <<setw(20)<<"Galutinis-mediana"
                         <<"\n";
-        stud_isvedimas(S);
 
-//        for(int b = 1; b < i; b++) //rikiuojame studentus pagal pavarde
-//        {
-//            while (S[b].pavarde < S[b - 1].pavarde)
-//            {
-//                swap(S[b], S[b - 1]);
-//                b--;
-//            }
-//        }
+
+        rikiavimas(S);
+        stud_isvedimas(S);
 
 
     }

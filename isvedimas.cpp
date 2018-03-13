@@ -50,7 +50,7 @@ void pasirinkimas(studentas &S){
                     break;
             }
         }
-void stud_isvedimas(vector<studentas>S){
+void stud_isvedimas(vector<studentas>& S){
 
       for(size_t c=0; c < S.size() ; c++)
         {
