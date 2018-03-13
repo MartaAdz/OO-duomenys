@@ -3,6 +3,8 @@
 #include <vector>
 #include <fstream>
 #include "studentas.h"
+#include "vidurkis.h"
+#include "mediana.h"
 #include "generavimas.h"
 
 using std::vector; using std::string;
@@ -23,6 +25,8 @@ void nuskaitymas(vector<studentas>& S, unsigned int stud_kiekis, std::ifstream &
         S[i].pazymiai.push_back(paz[1]);
         S[i].pazymiai.push_back(paz[2]);
         S[i].egzaminas=egz;
+        S[i].galBalasVid=vidurkis(S[i]);
+        S[i].galBalasMed=mediana(S[i]);
         i++;
         if (i==stud_kiekis) break;
     }

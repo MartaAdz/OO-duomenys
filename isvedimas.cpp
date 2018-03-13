@@ -7,7 +7,6 @@
 #include "studentas.h"
 #include "vidurkis.h"
 #include "mediana.h"
-#include "generavimas.h"
 
 using std::cout; using std::cin; using std::endl; using std::vector; using std::setw;
 using std::size_t;
@@ -56,8 +55,10 @@ void stud_isvedimas(vector<studentas>& S){
         {
             cout<<std::left<<setw(20)<<S[c].vardas
                             <<setw(20)<<S[c].pavarde;
-            vidurkis(S[c]);
-            mediana(S[c]);
+            cout.precision (3);
+            cout<<setw(20)<<S[c].galBalasVid;
+            cout.precision (3);
+            cout<<setw(20)<<S[c].galBalasMed;
             cout<<"\n";
         }
 }

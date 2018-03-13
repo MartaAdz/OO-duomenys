@@ -11,6 +11,7 @@
 #include "isvedimas.h"
 #include "nuskaitymas.h"
 #include "rikiavimas.h"
+#include "skirstymas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
 using std::setw; using std::swap;
@@ -18,14 +19,17 @@ int main()
 {
     cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
 
-    int p;
+    int p=1;
     cin>>p;
 
     if(p==1){
+
         unsigned int stud_kiekis;
         cout<<"kiek studentu sugeneruoti: ";
         cin>>stud_kiekis;
+
         studentu_generavimas(stud_kiekis);
+
         std::ifstream duomenys("kursiokai.txt");
 
         try{
@@ -40,7 +44,10 @@ int main()
             exit(1);
         }
         vector<studentas> S;
+
         nuskaitymas (S, stud_kiekis, duomenys);
+
+
         cout<<std::left<<setw(20)<<"Vardas"
                         <<setw(20)<<"Pavarde"
                         <<setw(20)<<"Galutinis-vidurkis"
@@ -50,6 +57,15 @@ int main()
 
         rikiavimas(S);
         stud_isvedimas(S);
+
+        vector<studentas> geras;
+        vector<studentas> blogas;
+        skirstymas(S, stud_kiekis, geras, blogas);
+
+        cout<<"geri"<<endl;
+        stud_isvedimas(geras);
+        cout<<"blogi"<<endl;
+        stud_isvedimas(blogas);
 
 
     }
