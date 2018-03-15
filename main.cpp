@@ -4,6 +4,9 @@
 #include <random>
 #include <fstream>
 #include <algorithm>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 #include "studentas.h"
 #include "vidurkis.h"
 #include "mediana.h"
@@ -19,7 +22,7 @@ int main()
 {
     cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
 
-    int p=1;
+    int p;
     cin>>p;
 
     if(p==1){
@@ -28,6 +31,8 @@ int main()
         cout<<"kiek studentu sugeneruoti: ";
         cin>>stud_kiekis;
 
+        using namespace std::chrono;
+        high_resolution_clock::time_point t1 = high_resolution_clock::now();
         studentu_generavimas(stud_kiekis);
 
         std::ifstream duomenys("kursiokai.txt");
@@ -58,14 +63,19 @@ int main()
         rikiavimas(S);
         stud_isvedimas(S);
 
+        high_resolution_clock::time_point t2 = high_resolution_clock::now();
+        duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
+        std::cout << "It took me " << time_span.count() << " seconds.";
+
         vector<studentas> geras;
         vector<studentas> blogas;
         skirstymas(S, stud_kiekis, geras, blogas);
 
-        cout<<"geri"<<endl;
+        cout<<"\ngeri"<<endl;
         stud_isvedimas(geras);
         cout<<"blogi"<<endl;
         stud_isvedimas(blogas);
+
 
 
     }
@@ -90,19 +100,12 @@ int main()
 
             if(p==1){
 
-                std::random_device rd;
-                std::mt19937 gen(rd());
-                std::uniform_int_distribution<> dis(1, 10);
-
                 cout<<"Kiek pazymiu norite sugeneruoti?";
                 int kiekis;
                 cin>>kiekis;
 
                 iverciai (S[i],kiekis);
                 for(int j=1;j<kiekis;j++) cout<<S[i].pazymiai[j]; //isveda pazymius
-
-                cout<<endl;
-
                 pasirinkimas(S[i]);
 
             }
@@ -119,13 +122,11 @@ int main()
                     if (pazymys==-1) break;
                 }
 
-                cout<<endl;
                 cout<<"Iveskite egzamino pazymi: ";
                 int egzaminas;
                 cin>>egzaminas;
                 S[i].egzaminas=egzaminas;
 
-                cout<<endl;
                 pasirinkimas(S[i]);
             }
         i++;
