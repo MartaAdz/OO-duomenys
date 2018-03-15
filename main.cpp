@@ -53,15 +53,16 @@ int main()
         nuskaitymas (S, stud_kiekis, duomenys);
 
 
-        cout<<std::left<<setw(20)<<"Vardas"
-                        <<setw(20)<<"Pavarde"
-                        <<setw(20)<<"Galutinis-vidurkis"
-                        <<setw(20)<<"Galutinis-mediana"
-                        <<"\n";
+//        cout<<std::left<<setw(20)<<"Vardas"
+//                        <<setw(20)<<"Pavarde"
+//                        <<setw(20)<<"Galutinis-vidurkis"
+//                        <<setw(20)<<"Galutinis-mediana"
+//                        <<"\n";
 
 
         rikiavimas(S);
-        stud_isvedimas(S);
+        stud_toFile(S);
+       // stud_isvedimas(S);
 
         high_resolution_clock::time_point t2 = high_resolution_clock::now();
         duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
@@ -70,13 +71,6 @@ int main()
         vector<studentas> geras;
         vector<studentas> blogas;
         skirstymas(S, stud_kiekis, geras, blogas);
-
-        cout<<"\ngeri"<<endl;
-        stud_isvedimas(geras);
-        cout<<"blogi"<<endl;
-        stud_isvedimas(blogas);
-
-
 
     }
     else if(p==2) {

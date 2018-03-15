@@ -62,3 +62,22 @@ void stud_isvedimas(vector<studentas>& S){
             cout<<"\n";
         }
 }
+
+void stud_toFile(vector<studentas>& S){
+
+    std::ofstream f("kursiokai.dat");
+     f<<std::left<<setw(20)<<"Vardas"
+                        <<setw(20)<<"Pavarde"
+                        <<setw(20)<<"Galutinis-vidurkis"
+                        <<setw(20)<<"Galutinis-mediana"
+                        <<"\n";
+      for(size_t c=0; c < S.size() ; c++)
+        {
+            f<<std::left<<setw(20)<<S[c].vardas
+                            <<setw(20)<<S[c].pavarde;
+            cout.precision (3);
+            f<<setw(20)<<S[c].galBalasVid;
+            cout.precision (3);
+            f<<setw(20)<<S[c].galBalasMed<<endl;
+        }
+}
