@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <list>
 #include <random>
 #include <fstream>
 #include <algorithm>
@@ -9,7 +10,7 @@
 #include "mediana.h"
 
 using std::cout; using std::cin; using std::endl; using std::vector; using std::setw;
-using std::size_t;
+using std::size_t; using std::list;
 
 void pasirinkimas(studentas &S){
     cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
@@ -49,7 +50,7 @@ void pasirinkimas(studentas &S){
                     break;
             }
         }
-void stud_isvedimas(vector<studentas>& S){
+void stud_isvedimas_vec(vector<studentas>& S){
 
       for(size_t c=0; c < S.size() ; c++)
         {
@@ -63,7 +64,7 @@ void stud_isvedimas(vector<studentas>& S){
         }
 }
 
-void stud_toFile(vector<studentas>& S){
+void stud_toFile_vec(vector<studentas>& S){
 
     std::ofstream f("kursiokai.dat");
      f<<std::left<<setw(20)<<"Vardas"
@@ -79,5 +80,18 @@ void stud_toFile(vector<studentas>& S){
             f<<setw(20)<<S[c].galBalasVid;
             cout.precision (3);
             f<<setw(20)<<S[c].galBalasMed<<endl;
+        }
+}
+void stud_isvedimas_list(std::list<studentas>& stud_list){
+
+    for (studentas einamas : stud_list) {
+
+            cout<<std::left<<setw(20)<<einamas.vardas
+                            <<setw(20)<<einamas.pavarde;
+            cout.precision (3);
+            cout<<setw(20)<<einamas.galBalasVid;
+            cout.precision (3);
+            cout<<setw(20)<<einamas.galBalasMed;
+            cout<<"\n";
         }
 }

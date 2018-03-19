@@ -48,6 +48,8 @@ void nuskaitymas_list(std::list<studentas>& stud_list, std::ifstream &duomenys){
         stud.pazymiai.push_back(paz[1]);
         stud.pazymiai.push_back(paz[2]);
         stud.egzaminas=egz;
+        stud.galBalasVid=vidurkis(stud);
+        stud.galBalasMed=mediana(stud);
         stud_list.push_back(stud);
     }
  }

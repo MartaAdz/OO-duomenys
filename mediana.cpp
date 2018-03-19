@@ -1,30 +1,35 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 #include "studentas.h"
 #include "mediana.h"
 
 using std::cout; using std::endl; using std::vector; using std:: swap; using std::setw;
-double mediana(vector<int>& M, int kiek, int egzaminas){
-    int j;
-	for (int i = 1; i < kiek; i++)
-	{
-		j = i;
-		while (j > 0 && M[j] < M[j - 1])
-		{
-			swap (M[j], M[j - 1]); //rikiuojame pazymius
-			j--;
-		}
-	}
 
+double mediana(vector<int>& pazymiai, int kiek, int egzaminas){
+
+    std::sort (pazymiai.begin(), pazymiai.end());
+
+
+//	for (int i = 1; i < kiek; i++)
+//	{
+//		j = i;
+//		while (j > 0 && pazymiai[j] < pazymiai[j - 1])
+//		{
+//			swap (pazymiai[j], pazymiai[j - 1]); //rikiuojame pazymius
+//			j--;
+//		}
+//	}
+    int j=pazymiai.size();
     if (j%2==0)
     {
-        auto galBalas=0.4*M[j / 2]+0.6*egzaminas;
+        auto galBalas=0.4*pazymiai[j / 2]+0.6*egzaminas;
         return galBalas;
     }
     else
     {
-        auto galBalas=0.4*(M[j / 2] + M[j / 2 +1])/2+0.6*egzaminas;
+        auto galBalas=0.4*(pazymiai[j / 2] + pazymiai[j / 2 +1])/2+0.6*egzaminas;
         return galBalas;
     }
 }
