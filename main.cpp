@@ -50,13 +50,15 @@ int main()
             cout<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
-        //vector<studentas> S;
+
         std::list<studentas> stud_list;
         nuskaitymas_list(stud_list, duomenys);
+        rikiavimas_list(stud_list);
 
 
-        //nuskaitymas (S, stud_kiekis, duomenys);
-
+        vector<studentas> S;
+        nuskaitymas_vec (S, stud_kiekis, duomenys);
+        rikiavimas_vec(S);
 
 
 //        cout<<std::left<<setw(20)<<"Vardas"
@@ -66,7 +68,7 @@ int main()
 //                        <<"\n";
 
 
-//        rikiavimas(S);
+
 //        stud_toFile(S);
        // stud_isvedimas(S);
 

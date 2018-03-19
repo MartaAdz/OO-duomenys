@@ -1,17 +1,15 @@
 #include <iostream>
 #include <vector>
+#include <list>
+#include <algorithm>
 #include "studentas.h"
 
-using std::size_t;
+using std::sort;
 
-void rikiavimas(std::vector<studentas>&S){
-
-    for(size_t c=1; c < S.size() ; c++)
-    {
-        while (S[c].pavarde < S[c - 1].pavarde)
-        {
-            std::swap(S[c], S[c - 1]);
-            c--;
-        }
-    }
+bool lyginimas (const studentas &rhs, const studentas &lhs) { return lhs.pavarde<rhs.pavarde; }
+void rikiavimas_vec(std::vector<studentas>&S){
+    sort(S.begin(), S.end(), lyginimas);
+}
+void rikiavimas_list(std::list<studentas>&stud_list){
+    stud_list.sort(lyginimas);
 }

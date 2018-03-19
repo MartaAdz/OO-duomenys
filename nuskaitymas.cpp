@@ -10,7 +10,7 @@
 
 using std::vector; using std::string;
 
-void nuskaitymas(vector<studentas>& S, unsigned int stud_kiekis, std::ifstream &duomenys){
+void nuskaitymas_vec(vector<studentas>& S, unsigned int stud_kiekis, std::ifstream &duomenys){
     string var, pav;
     vector <int> paz (3,0);
     int egz;
