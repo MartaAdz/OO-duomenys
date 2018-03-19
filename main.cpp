@@ -54,6 +54,7 @@ int main()
 
         deque<studentas> stud_dek;
         nuskaitymas_dek(stud_dek, duomenys);
+        rikiavimas_dek(stud_dek);
         stud_toFile_deque(stud_dek);
 
 
