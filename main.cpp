@@ -56,9 +56,9 @@ int main()
         rikiavimas_list(stud_list);
 
 
-        vector<studentas> S;
-        nuskaitymas_vec (S, stud_kiekis, duomenys);
-        rikiavimas_vec(S);
+//        vector<studentas> S;
+//        nuskaitymas_vec (S, stud_kiekis, duomenys);
+//        rikiavimas_vec(S);
 
 
 //        cout<<std::left<<setw(20)<<"Vardas"
@@ -69,9 +69,10 @@ int main()
 
 
 
-//        stud_toFile(S);
+//        stud_toFile_vec(S);
        // stud_isvedimas(S);
-       stud_isvedimas_list(stud_list);
+     //  stud_isvedimas_list(stud_list);
+       stud_toFile_list(stud_list);
 
         high_resolution_clock::time_point t2 = high_resolution_clock::now();
         duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
@@ -108,7 +109,8 @@ int main()
                 cin>>kiekis;
 
                 iverciai (S[i],kiekis);
-                for(int j=1;j<kiekis;j++) cout<<S[i].pazymiai[j]; //isveda pazymius
+                for(int j=1;j<kiekis;j++) cout<<S[i].pazymiai[j]<<" "; //isveda pazymius
+                cout<<"\n";
                 pasirinkimas(S[i]);
 
             }
