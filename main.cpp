@@ -49,50 +49,58 @@ int main()
             exit(1);
         }
 
-        using namespace std::chrono;
-        high_resolution_clock::time_point t_dek_1 = high_resolution_clock::now();
+       cout<<"1-naudoti deque\n2-naudoti list\n3-naudoti vector\n";
+       int naud;
+       cin>>naud;
+       using namespace std::chrono;
 
-        deque<studentas> stud_dek;
-        nuskaitymas_dek(stud_dek, duomenys);
-        rikiavimas_dek(stud_dek);
-        stud_toFile_deque(stud_dek);
+       if (naud==1){
 
+            high_resolution_clock::time_point t_dek_1 = high_resolution_clock::now();
 
-        high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
-        duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
-        std::cout << "su deque uztruko " << time_dek.count() << " sekundziu.\n";
-
-
-//        high_resolution_clock::time_point t_list_1 = high_resolution_clock::now();
-//
-//        list<studentas> stud_list;
-//        nuskaitymas_list(stud_list, duomenys);
-//        rikiavimas_list(stud_list);
-//        //stud_isvedimas_list(stud_list);
-//        stud_toFile_list(stud_list);
-//        //skirstymas_list(stud_list, stud_kiekis);
-//
-//        high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
-//        duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
-//        std::cout << "su listu uztruko " << time_list.count() << " sekundziu.\n";
-
-//        high_resolution_clock::time_point t_vec_1 = high_resolution_clock::now();
-//
-//        vector<studentas> S;
-//        nuskaitymas_vec (S, stud_kiekis, duomenys);
-//        rikiavimas_vec(S);
-//        //stud_isvedimas_vec(S);
-//        stud_toFile_vec(S);
-//
-//        high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
-//        duration<double> time_vec = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
-//        std::cout << "su vektoriumi uztruko " << time_vec.count() << " sekundziu.";
-//
-//        vector<studentas> geras;
-//        vector<studentas> blogas;
-//        skirstymas_vec(S, stud_kiekis, geras, blogas);
+            deque<studentas> stud_dek;
+            nuskaitymas_dek(stud_dek, duomenys);
+            rikiavimas_dek(stud_dek);
+            stud_toFile_dek(stud_dek);
+            deque<studentas> geri;
+            deque<studentas> blogi;
+            skirstymas_dek(stud_dek, stud_kiekis, geri, blogi);
 
 
+            high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
+            duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
+            cout << "su deque uztruko " << time_dek.count() << " sekundziu.\n";
+        }
+        else if (naud==2) {
+
+            high_resolution_clock::time_point t_list_1 = high_resolution_clock::now();
+
+            list<studentas> stud_list;
+            nuskaitymas_list(stud_list, duomenys);
+            rikiavimas_list(stud_list);
+            stud_toFile_list(stud_list);
+            //skirstymas_list(stud_list, stud_kiekis);
+
+            high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
+            duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
+            cout << "su listu uztruko " << time_list.count() << " sekundziu.\n";
+        }
+        else if (naud==3){
+
+            high_resolution_clock::time_point t_vec_1 = high_resolution_clock::now();
+
+            vector<studentas> S;
+            nuskaitymas_vec (S, duomenys);
+            rikiavimas_vec(S);
+            stud_toFile_vec(S);
+            vector<studentas> geras;
+            vector<studentas> blogas;
+            skirstymas_vec(S, stud_kiekis, geras, blogas);
+
+            high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
+            duration<double> time_vec = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
+            cout << "su vektoriumi uztruko " << time_vec.count() << " sekundziu.";
+        }
     }
     else if(p==2) {
         auto d=1;
