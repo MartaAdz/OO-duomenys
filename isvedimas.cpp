@@ -4,6 +4,7 @@
 #include <list>
 #include <random>
 #include <fstream>
+#include <deque>
 #include <algorithm>
 #include "studentas.h"
 #include "vidurkis.h"
@@ -81,7 +82,7 @@ void stud_toFile_vec(vector<studentas>& S){
             f<<setw(20)<<S[c].galBalasMed<<endl;
         }
 }
-void stud_isvedimas_list(std::list<studentas>& stud_list){
+void stud_isvedimas_list(list<studentas>& stud_list){
 
     for (studentas einamas : stud_list) {
 
@@ -94,7 +95,6 @@ void stud_isvedimas_list(std::list<studentas>& stud_list){
             cout<<"\n";
         }
 }
-
 void stud_toFile_list(list<studentas>& stud_list){
 
     std::ofstream f("kursas.dat");
@@ -111,5 +111,23 @@ void stud_toFile_list(list<studentas>& stud_list){
             f<<setw(20)<<einamas.galBalasVid;
             cout.precision (3);
             f<<setw(20)<<einamas.galBalasMed<<endl;
+        }
+}
+void stud_toFile_deque(std::deque<studentas>& stud_dek){
+
+    std::ofstream f("kursas.dat");
+     f<<std::left<<setw(20)<<"Vardas"
+                        <<setw(20)<<"Pavarde"
+                        <<setw(20)<<"Galutinis-vidurkis"
+                        <<setw(20)<<"Galutinis-mediana"
+                        <<"\n";
+   for(size_t c=0; c < stud_dek.size() ; c++)
+        {
+            f<<std::left<<setw(20)<<stud_dek[c].vardas
+                            <<setw(20)<<stud_dek[c].pavarde;
+            cout.precision (3);
+            f<<setw(20)<<stud_dek[c].galBalasVid;
+            cout.precision (3);
+            f<<setw(20)<<stud_dek[c].galBalasMed<<endl;
         }
 }

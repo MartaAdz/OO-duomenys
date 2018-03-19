@@ -8,6 +8,7 @@
 #include <ctime>
 #include <ratio>
 #include <chrono>
+#include <deque>
 #include "studentas.h"
 #include "vidurkis.h"
 #include "mediana.h"
@@ -18,7 +19,7 @@
 #include "skirstymas.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
-using std::setw; using std::swap;
+using std::setw; using std::swap; using std::list; using std::deque;
 int main()
 {
     cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
@@ -31,9 +32,6 @@ int main()
         unsigned int stud_kiekis;
         cout<<"kiek studentu sugeneruoti: ";
         cin>>stud_kiekis;
-
-        using namespace std::chrono;
-        high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
         studentu_generavimas(stud_kiekis);
 
@@ -51,36 +49,48 @@ int main()
             exit(1);
         }
 
-        std::list<studentas> stud_list;
+        using namespace std::chrono;
+        high_resolution_clock::time_point t_dek_1 = high_resolution_clock::now();
+
+        deque<studentas> stud_dek;
+        stud_toFile_deque(stud_dek);
+
+
+
+        high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
+        duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
+        std::cout << "su listu uztruko " << time_dek.count() << " sekundziu.\n";
+
+
+        high_resolution_clock::time_point t_list_1 = high_resolution_clock::now();
+
+        list<studentas> stud_list;
         nuskaitymas_list(stud_list, duomenys);
         rikiavimas_list(stud_list);
+        //stud_isvedimas_list(stud_list);
+        stud_toFile_list(stud_list);
+        //skirstymas_list(stud_list, stud_kiekis);
 
+        high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
+        duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
+        std::cout << "su listu uztruko " << time_list.count() << " sekundziu.\n";
 
+//        high_resolution_clock::time_point t_vec_1 = high_resolution_clock::now();
+//
 //        vector<studentas> S;
 //        nuskaitymas_vec (S, stud_kiekis, duomenys);
 //        rikiavimas_vec(S);
-
-
-//        cout<<std::left<<setw(20)<<"Vardas"
-//                        <<setw(20)<<"Pavarde"
-//                        <<setw(20)<<"Galutinis-vidurkis"
-//                        <<setw(20)<<"Galutinis-mediana"
-//                        <<"\n";
-
-
-
+//        //stud_isvedimas_vec(S);
 //        stud_toFile_vec(S);
-       // stud_isvedimas(S);
-     //  stud_isvedimas_list(stud_list);
-       stud_toFile_list(stud_list);
+//
+//        high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
+//        duration<double> time_vec = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
+//        std::cout << "su vektoriumi uztruko " << time_vec.count() << " sekundziu.";
+//
+//        vector<studentas> geras;
+//        vector<studentas> blogas;
+//        skirstymas_vec(S, stud_kiekis, geras, blogas);
 
-        high_resolution_clock::time_point t2 = high_resolution_clock::now();
-        duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
-        std::cout << "It took me " << time_span.count() << " seconds.";
-
-        vector<studentas> geras;
-        vector<studentas> blogas;
-      //  skirstymas(S, stud_kiekis, geras, blogas);
 
     }
     else if(p==2) {

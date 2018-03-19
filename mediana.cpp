@@ -10,17 +10,6 @@ using std::cout; using std::endl; using std::vector; using std:: swap; using std
 double mediana(vector<int>& pazymiai, int kiek, int egzaminas){
 
     std::sort (pazymiai.begin(), pazymiai.end());
-
-
-//	for (int i = 1; i < kiek; i++)
-//	{
-//		j = i;
-//		while (j > 0 && pazymiai[j] < pazymiai[j - 1])
-//		{
-//			swap (pazymiai[j], pazymiai[j - 1]); //rikiuojame pazymius
-//			j--;
-//		}
-//	}
     int j=pazymiai.size();
     if (j%2==0)
     {

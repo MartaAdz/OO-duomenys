@@ -1,22 +1,38 @@
 #include <iostream>
 #include <vector>
+#include <list>
 #include "studentas.h"
 
-using std::vector; using std::size_t;
+using std::vector; using std::size_t; using std::list;
 
-void skirstymas(vector<studentas>& S, unsigned int stud_kiekis, vector<studentas>& geras, vector<studentas>& blogas){
-    blogas.push_back(studentas());
-    geras.push_back(studentas());
+void skirstymas_vec(vector<studentas>& S, unsigned int stud_kiekis, vector<studentas>& geras, vector<studentas>& blogas){
+    studentas tmp;
     for (size_t i=0; i<stud_kiekis; i++)
     {
 
             if (S[i].pazymiai[0]+S[i].pazymiai[1]+S[i].pazymiai[2]<18) ////10*3*60/100=18
             {
-                blogas.push_back(S[i]);
+                S[i]=tmp;
+                blogas.push_back(tmp);
             }
             else
             {
-                geras.push_back(S[i]);
+                S[i]=tmp;
+                geras.push_back(tmp);
             }
     }
+}
+void skirstymas_list(list<studentas>& stud_list, unsigned int stud_kiekis){
+//    list<studentas> geri;
+//    list<studentas> blogi;
+//    studentas tmp;
+//
+//    while (!stud_list.empty())
+//{
+//    * pT = stud_list.front();
+//
+//    stud_list.erase(stud_list.begin());
+//    delete pT;
+//}
+
 }

@@ -34,7 +34,6 @@ void studentu_generavimas(unsigned int studentu_kiekis){
 
     }
 }
-
 void iverciai(studentas &S, int kiekis){
 
                 std::random_device rd;
