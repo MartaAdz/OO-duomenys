@@ -4,6 +4,7 @@
 #include <random>
 #include <fstream>
 #include <algorithm>
+#include <list>
 #include <ctime>
 #include <ratio>
 #include <chrono>
@@ -33,6 +34,7 @@ int main()
 
         using namespace std::chrono;
         high_resolution_clock::time_point t1 = high_resolution_clock::now();
+
         studentu_generavimas(stud_kiekis);
 
         std::ifstream duomenys("kursiokai.txt");
@@ -48,9 +50,13 @@ int main()
             cout<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
-        vector<studentas> S;
+        //vector<studentas> S;
+        std::list<studentas> stud_list;
+        nuskaitymas_list(stud_list, duomenys);
 
-        nuskaitymas (S, stud_kiekis, duomenys);
+
+        //nuskaitymas (S, stud_kiekis, duomenys);
+
 
 
 //        cout<<std::left<<setw(20)<<"Vardas"
@@ -60,8 +66,8 @@ int main()
 //                        <<"\n";
 
 
-        rikiavimas(S);
-        stud_toFile(S);
+//        rikiavimas(S);
+//        stud_toFile(S);
        // stud_isvedimas(S);
 
         high_resolution_clock::time_point t2 = high_resolution_clock::now();
@@ -70,7 +76,7 @@ int main()
 
         vector<studentas> geras;
         vector<studentas> blogas;
-        skirstymas(S, stud_kiekis, geras, blogas);
+      //  skirstymas(S, stud_kiekis, geras, blogas);
 
     }
     else if(p==2) {

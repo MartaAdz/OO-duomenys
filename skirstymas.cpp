@@ -12,11 +12,11 @@ void skirstymas(vector<studentas>& S, unsigned int stud_kiekis, vector<studentas
 
             if (S[i].pazymiai[0]+S[i].pazymiai[1]+S[i].pazymiai[2]<18) ////10*3*60/100=18
             {
-                blogas.push_back({S[i].vardas, S[i].pavarde, S[i].galBalasVid, S[i].galBalasMed});
+                blogas.push_back(S[i]);
             }
             else
             {
-                geras.push_back({S[i].vardas, S[i].pavarde, S[i].galBalasVid, S[i].galBalasMed});
+                geras.push_back(S[i]);
             }
     }
 }

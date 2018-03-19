@@ -1,6 +1,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <list>
 #include <fstream>
 #include "studentas.h"
 #include "vidurkis.h"
@@ -29,5 +30,24 @@ void nuskaitymas(vector<studentas>& S, unsigned int stud_kiekis, std::ifstream &
         S[i].galBalasMed=mediana(S[i]);
         i++;
         if (i==stud_kiekis) break;
+    }
+ }
+void nuskaitymas_list(std::list<studentas>& stud_list, std::ifstream &duomenys){
+    string var, pav;
+    vector <int> paz (3,0);
+    int egz;
+    auto i=0;
+
+    while(!duomenys.eof())
+    {
+        duomenys >> var >> pav >> paz[0] >> paz[1] >> paz[2] >> egz;
+        studentas stud;
+        stud.vardas=var;
+        stud.pavarde=pav;
+        stud.pazymiai.push_back(paz[0]);
+        stud.pazymiai.push_back(paz[1]);
+        stud.pazymiai.push_back(paz[2]);
+        stud.egzaminas=egz;
+        stud_list.push_back(stud);
     }
  }
