@@ -11,7 +11,7 @@
 #include "mediana.h"
 
 using std::cout; using std::cin; using std::endl; using std::vector; using std::setw;
-using std::size_t; using std::list;
+using std::size_t; using std::list; using std::fixed; using std::setprecision;
 
 void pasirinkimas(studentas &S){
     cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
@@ -62,11 +62,9 @@ void stud_toFile_vec(vector<studentas>& S){
       for(size_t c=0; c < S.size() ; c++)
         {
             f<<std::left<<setw(20)<<S[c].vardas
-                            <<setw(20)<<S[c].pavarde;
-            cout.precision (3);
-            f<<setw(20)<<S[c].galBalasVid;
-            cout.precision (3);
-            f<<setw(20)<<S[c].galBalasMed<<endl;
+                        <<setw(20)<<S[c].pavarde
+                        <<setw(20)<<fixed<<setprecision(2)<<S[c].galBalasVid
+                        <<setw(20)<<fixed<<setprecision(2)<<S[c].galBalasMed<<endl;
         }
 }
 void stud_toFile_list(list<studentas>& stud_list){
@@ -80,12 +78,9 @@ void stud_toFile_list(list<studentas>& stud_list){
       for (studentas einamas : stud_list) {
 
             f<<std::left<<setw(20)<<einamas.vardas
-                            <<setw(20)<<einamas.pavarde;
-            cout.precision (3);
-            f<<setw(20)<<einamas.galBalasVid;
-            cout.precision (3);
-            f<<setw(20)<<einamas.galBalasMed<<endl;
-            for(int j=0; j!=3; j++) f<<einamas.pazymiai[j]<<" ";
+                        <<setw(20)<<einamas.pavarde
+                        <<setw(20)<<fixed<<setprecision(2)<<einamas.galBalasVid
+                        <<setw(20)<<fixed<<setprecision(2)<<einamas.galBalasMed<<endl;
         }
 }
 void stud_toFile_dek(std::deque<studentas>& stud_dek){
@@ -99,10 +94,8 @@ void stud_toFile_dek(std::deque<studentas>& stud_dek){
    for(size_t c=0; c < stud_dek.size() ; c++)
         {
             f<<std::left<<setw(20)<<stud_dek[c].vardas
-                            <<setw(20)<<stud_dek[c].pavarde;
-            cout.precision (3);
-            f<<setw(20)<<stud_dek[c].galBalasVid;
-            cout.precision (3);
-            f<<setw(20)<<stud_dek[c].galBalasMed<<endl;
+                            <<setw(20)<<stud_dek[c].pavarde
+                            <<setw(20)<<fixed<<setprecision(2)<<stud_dek[c].galBalasVid
+                            <<setw(20)<<fixed<<setprecision(2)<<stud_dek[c].galBalasMed<<endl;
         }
 }

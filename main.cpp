@@ -78,13 +78,10 @@ int main()
             list<studentas> stud_list;
             nuskaitymas_list(stud_list, duomenys);
             rikiavimas_list(stud_list);
-            //stud_toFile_list(stud_list);
+            stud_toFile_list(stud_list);
             list<studentas> geri;
             list<studentas> blogi;
             skirstymas_list(stud_list, stud_kiekis, geri, blogi);
-           // stud_toFile_list(geri);
-            stud_toFile_list(blogi);
-
 
             high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
             duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);

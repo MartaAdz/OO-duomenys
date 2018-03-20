@@ -54,7 +54,7 @@ void nuskaitymas_list(std::list<studentas>& stud_list, std::ifstream &duomenys){
         stud_list.push_back(stud);
     }
  }
- void nuskaitymas_dek(std::deque<studentas>& stud_dek, std::ifstream &duomenys){
+void nuskaitymas_dek(std::deque<studentas>& stud_dek, std::ifstream &duomenys){
     string var, pav;
     vector <int> paz (3,0);
     int egz;
