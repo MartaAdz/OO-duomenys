@@ -23,17 +23,14 @@ void skirstymas_vec(vector<studentas>& S, unsigned int stud_kiekis, vector<stude
             }
     }
 }
-void skirstymas_list(list<studentas>& stud_list, unsigned int stud_kiekis){
-//    list<studentas> geri;
-//    list<studentas> blogi;
-//    studentas tmp;
-//
-//    while (!stud_list.empty())
-//{
-//    * pT = stud_list.front();
-//
-//    stud_list.erase(stud_list.begin());
-//    delete pT;
+void skirstymas_list(list<studentas>& stud_list, unsigned int stud_kiekis,
+                     list<studentas>& geri, list<studentas>& blogi){
+
+    for (auto it=stud_list.begin(); it!=stud_list.end(); it++)
+    {
+            if ((*it).pazymiai[0]+(*it).pazymiai[1]+(*it).pazymiai[2]<18) blogi.push_back(*it); //10*3*60/100=18
+            else geri.push_back(*it);
+    }
 }
 void skirstymas_dek(deque<studentas>& S, unsigned int stud_kiekis, deque<studentas>& geri, deque<studentas>& blogi){
     studentas tmp;

@@ -52,6 +52,7 @@ int main()
        cout<<"1-naudoti deque\n2-naudoti list\n3-naudoti vector\n";
        int naud;
        cin>>naud;
+
        using namespace std::chrono;
 
        if (naud==1){
@@ -66,7 +67,6 @@ int main()
             deque<studentas> blogi;
             skirstymas_dek(stud_dek, stud_kiekis, geri, blogi);
 
-
             high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
             duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
             cout << "su deque uztruko " << time_dek.count() << " sekundziu.\n";
@@ -78,8 +78,13 @@ int main()
             list<studentas> stud_list;
             nuskaitymas_list(stud_list, duomenys);
             rikiavimas_list(stud_list);
-            stud_toFile_list(stud_list);
-            //skirstymas_list(stud_list, stud_kiekis);
+            //stud_toFile_list(stud_list);
+            list<studentas> geri;
+            list<studentas> blogi;
+            skirstymas_list(stud_list, stud_kiekis, geri, blogi);
+           // stud_toFile_list(geri);
+            stud_toFile_list(blogi);
+
 
             high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
             duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
@@ -104,17 +109,16 @@ int main()
     }
     else if(p==2) {
         auto d=1;
-        auto i=0;
         vector<studentas> S;
-        S.push_back(studentas());
+        studentas stud;
         while(d!=2){
 
             cout<<"Iveskite studento varda ir pavarde: ";
             string var, pav;
             cin>>var;
-            S[i].vardas=var;
+            stud.vardas=var;
             cin>>pav;
-            S[i].pavarde=pav;
+            stud.pavarde=pav;
 
             cout<<"1-generuoti pazymius, 2-ivesti pazymius: ";
             int p;
@@ -127,21 +131,21 @@ int main()
                 int kiekis;
                 cin>>kiekis;
 
-                iverciai (S[i],kiekis);
-                for(int j=1;j<kiekis;j++) cout<<S[i].pazymiai[j]<<" "; //isveda pazymius
+                iverciai (stud,kiekis);
+                for(int j=1;j<kiekis;j++) cout<<stud.pazymiai[j]<<" "; //isveda pazymius
                 cout<<"\n";
-                pasirinkimas(S[i]);
+                pasirinkimas(stud);
 
             }
-             else if (p==2)
+            else if (p==2)
             {
                 cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
                 int pazymys;
-                for(int j=0; i<S[i].pazymiai.size()+1; j++)
+                for(int j=0; j<stud.pazymiai.size()+1; j++)
                 {
                     cout<<j+1<<" pazymys: ";
                     cin>>pazymys;
-                    S[i].pazymiai.push_back(pazymys);
+                    stud.pazymiai.push_back(pazymys);
 
                     if (pazymys==-1) break;
                 }
@@ -149,12 +153,12 @@ int main()
                 cout<<"Iveskite egzamino pazymi: ";
                 int egzaminas;
                 cin>>egzaminas;
-                S[i].egzaminas=egzaminas;
+                stud.egzaminas=egzaminas;
 
-                pasirinkimas(S[i]);
+                pasirinkimas(stud);
             }
-        i++;
-        S.push_back(studentas());
+
+        S.push_back(stud);
         cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
         cin>>d;
     }

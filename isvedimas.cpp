@@ -85,6 +85,7 @@ void stud_toFile_list(list<studentas>& stud_list){
             f<<setw(20)<<einamas.galBalasVid;
             cout.precision (3);
             f<<setw(20)<<einamas.galBalasMed<<endl;
+            for(int j=0; j!=3; j++) f<<einamas.pazymiai[j]<<" ";
         }
 }
 void stud_toFile_dek(std::deque<studentas>& stud_dek){

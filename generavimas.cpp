@@ -3,6 +3,9 @@
 #include <vector>
 #include <random>
 #include <fstream>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 #include "vidurkis.h"
 #include "mediana.h"
 using std::cout; using std::endl; using std::vector; using std::string; using std::cin;
@@ -14,37 +17,36 @@ void studentu_generavimas(unsigned int studentu_kiekis){
         {
             f <<  "vardas" << std::to_string(i) <<" "<<"pavarde"<< std::to_string(i)<<" ";
 
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::uniform_int_distribution<> dis(1, 10);
+            using namespace std::chrono;
+            std::random_device rseed;
+            std::mt19937 gen(rseed()*static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().
+            time_since_epoch().count()));
+            std::uniform_int_distribution<int> dst(1,10);
 
-            nDarbas.push_back(int());
-            for(int j=0; j<3; j++)
+            for(int i=0; i!=3; i++)
             {
-                nDarbas[j]=dis(gen);
-                f<<nDarbas[j]<<" ";
+                nDarbas.push_back(dst(gen));
+                f<<nDarbas[i]<<" ";
             }
 
-            int egzaminas=dis(gen);
-
-                    auto nDarSuma=0;
-                    for(int i=0; i<3; i++) nDarSuma+=nDarbas[i];
-
+            int egzaminas=dst(gen);
             f<<egzaminas<<endl;
 
     }
 }
 void iverciai(studentas &S, int kiekis){
 
-                std::random_device rd;
-                std::mt19937 gen(rd());
-                std::uniform_int_distribution<> dis(1, 10);
+                using namespace std::chrono;
+                std::random_device rseed;
+                std::mt19937 gen(rseed()*static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().
+                time_since_epoch().count()));
+                std::uniform_int_distribution<int> dst(1,10);
 
                 vector<int> nDarbas;
                 nDarbas.push_back(int());
-                for(int i=0; i<kiekis; i++) nDarbas.push_back(dis(gen));
+                for(int i=0; i<kiekis; i++) nDarbas.push_back(dst(gen));
                 S.pazymiai=nDarbas;
 
-                S.egzaminas=dis(gen);
+                S.egzaminas=dst(gen);
 
 }
