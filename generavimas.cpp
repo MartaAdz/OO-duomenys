@@ -23,9 +23,11 @@ void studentu_generavimas(unsigned int studentu_kiekis){
             time_since_epoch().count()));
             std::uniform_int_distribution<int> dst(1,10);
 
+            int paz;
             for(int i=0; i!=3; i++)
             {
-                nDarbas.push_back(dst(gen));
+                paz=dst(gen);
+                nDarbas.push_back(paz);
                 f<<nDarbas[i]<<" ";
             }
 
@@ -43,8 +45,12 @@ void iverciai(studentas &S, int kiekis){
                 std::uniform_int_distribution<int> dst(1,10);
 
                 vector<int> nDarbas;
-                nDarbas.push_back(int());
-                for(int i=0; i<kiekis; i++) nDarbas.push_back(dst(gen));
+                int ivertis;
+                for(int i=0; i<kiekis; i++)
+                {
+                    ivertis=dst(gen);
+                    nDarbas.push_back(ivertis);
+                }
                 S.pazymiai=nDarbas;
 
                 S.egzaminas=dst(gen);
