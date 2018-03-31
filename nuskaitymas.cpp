@@ -74,4 +74,5 @@ void nuskaitymas_dek(std::deque<studentas>& stud_dek, std::ifstream &duomenys){
 
         stud_dek.push_back(stud);
     }
+
  }

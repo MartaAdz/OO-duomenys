@@ -62,10 +62,12 @@ int main()
             deque<studentas> stud_dek;
             nuskaitymas_dek(stud_dek, duomenys);
             rikiavimas_dek(stud_dek);
-            stud_toFile_dek(stud_dek);
+            //stud_toFile_dek(stud_dek);
             deque<studentas> geri;
             deque<studentas> blogi;
             skirstymas_dek(stud_dek, stud_kiekis, geri, blogi);
+            skirstymas_trinant_dek(stud_dek, blogi);
+            stud_toFile_dek(blogi);
 
             high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
             duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
@@ -82,6 +84,7 @@ int main()
             list<studentas> geri;
             list<studentas> blogi;
             skirstymas_list(stud_list, stud_kiekis, geri, blogi);
+            skirstymas_trinant_list(stud_list, blogi);
 
             high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
             duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
@@ -98,6 +101,7 @@ int main()
             vector<studentas> geras;
             vector<studentas> blogas;
             skirstymas_vec(S, stud_kiekis, geras, blogas);
+            skirstymas_trinant_vec(S, blogas);
 
             high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
             duration<double> time_vec = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
@@ -129,7 +133,9 @@ int main()
                 cin>>kiekis;
 
                 iverciai (stud,kiekis);
-                for(int j=1;j<kiekis;j++) cout<<stud.pazymiai[j]<<" "; //isveda pazymius
+
+                for(int j=0;j<kiekis;j++) cout<<stud.pazymiai[j]<<" "; //isveda pazymius
+
                 cout<<"\n";
                 pasirinkimas(stud);
 
