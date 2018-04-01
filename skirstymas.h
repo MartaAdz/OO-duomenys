@@ -13,5 +13,4 @@
     void skirstymas_dek(std::deque<studentas>& S, unsigned int stud_kiekis,
                         std::deque<studentas>& geri, std::deque<studentas>& blogi);
     std::deque<studentas> skirstymas_trinant_dek(std::deque<studentas>& stud_dek, std::deque<studentas>& blogi);
-
 #endif

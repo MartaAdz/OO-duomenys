@@ -28,6 +28,7 @@ vector<studentas> skirstymas_trinant_vec(vector<studentas>& S, vector<studentas>
     }
     return blogas;
 }
+
 void skirstymas_list(list<studentas>& stud_list,
                      list<studentas>& geri, list<studentas>& blogi){
 
