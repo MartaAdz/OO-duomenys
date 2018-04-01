@@ -12,7 +12,7 @@ void skirstymas_vec(vector<studentas>& S, unsigned int stud_kiekis, vector<stude
     for (size_t i=0; i<stud_kiekis; i++)
     {
 
-            if (S[i].pazymiai[0]+S[i].pazymiai[1]+S[i].pazymiai[2]<18) ////10*3*60/100=18
+            if (S[i].galBalasVid<5)
             {
                 S[i]=tmp;
                 blogas.push_back(tmp);
@@ -28,7 +28,7 @@ vector<studentas> skirstymas_trinant_vec(vector<studentas>& S, vector<studentas>
     vector<studentas>::iterator it=S.begin();
     while (it!=S.end())
     {
-        if ((*it).galBalasVid<6)
+        if ((*it).galBalasVid<5)
         {
             blogas.push_back(*it);
             it=S.erase(it);
@@ -42,7 +42,7 @@ void skirstymas_list(list<studentas>& stud_list, unsigned int stud_kiekis,
 
     for (auto it=stud_list.begin(); it!=stud_list.end(); it++)
     {
-            if ((*it).pazymiai[0]+(*it).pazymiai[1]+(*it).pazymiai[2]<18) blogi.push_back(*it); //10*3*60/100=18
+            if ((*it).galBalasVid<5) blogi.push_back(*it); //10*3*60/100=18
             else geri.push_back(*it);
     }
 }
@@ -51,7 +51,7 @@ list<studentas> skirstymas_trinant_list (list<studentas>& stud_list, list<studen
     list<studentas>::iterator it=stud_list.begin();
     while (it!=stud_list.end())
     {
-        if ((*it).galBalasVid<6)
+        if ((*it).galBalasVid<5)
         {
             blogi.push_back(*it);
             it=stud_list.erase(it);
@@ -61,28 +61,19 @@ list<studentas> skirstymas_trinant_list (list<studentas>& stud_list, list<studen
     return blogi;
 }
 void skirstymas_dek(deque<studentas>& S, unsigned int stud_kiekis, deque<studentas>& geri, deque<studentas>& blogi){
-    studentas tmp;
 
     for (size_t i=0; i<stud_kiekis; i++)
     {
 
-            if (S[i].pazymiai[0]+S[i].pazymiai[1]+S[i].pazymiai[2]<18) ////10*3*60/100=18
-            {
-                S[i]=tmp;
-                blogi.push_back(tmp);
-            }
-            else
-            {
-                S[i]=tmp;
-                geri.push_back(tmp);
-            }
+            if (S[i].galBalasVid<5)  blogi.push_back(S[i]);
+            else geri.push_back(S[i]);
     }
 }
 bool arGeras(studentas &S) {
-     if (S.galBalasVid>=6) return true;
+     if (S.galBalasVid>=5) return true;
 }
 bool arBlogas(studentas &S) {
-    if (S.galBalasVid<6) return true;
+    if (S.galBalasVid<5) return true;
     }
 deque<studentas> skirstymas_trinant_dek(deque<studentas>& stud_dek, deque<studentas>& blogi){
 
