@@ -56,3 +56,21 @@ void iverciai(studentas &S, int kiekis){
                 S.egzaminas=dst(gen);
 
 }
+vector<int> ivesti_pazymiai(studentas &stud){
+                cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
+                int pazymys;
+                for(int j=0; j<stud.pazymiai.size()+1; j++)
+                {
+                    if ( !(cin >> pazymys) )
+                    {
+                        cin.clear();
+                        cin.ignore();
+                        cout << "Klaidingas iveimas. Bandykite dar karta: ";
+                    }
+
+                    stud.pazymiai.push_back(pazymys);
+
+                    if (pazymys==-1) break;
+                }
+            return stud.pazymiai;
+}

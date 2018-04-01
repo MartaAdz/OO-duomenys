@@ -142,17 +142,7 @@ int main()
             }
             else if (p==2)
             {
-                cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
-                int pazymys;
-                for(int j=0; j<stud.pazymiai.size()+1; j++)
-                {
-                    cout<<j+1<<" pazymys: ";
-                    cin>>pazymys;
-                    stud.pazymiai.push_back(pazymys);
-
-                    if (pazymys==-1) break;
-                }
-
+                ivesti_pazymiai(stud);
                 cout<<"Iveskite egzamino pazymi: ";
                 int egzaminas;
                 cin>>egzaminas;
