@@ -70,9 +70,19 @@ t.y. tik ivedimo metu vartotojas nusprendzia kuomet jis jau ivede visu namu darb
 2. Funkcijos ir headeriai medianai ir vidurkiui skaiciuoti `mediana.h` `mediana.cpp` bei `vidurkis.h` `vidurkis.cpp`
 3. Exception handling'as failui, kuriame saugomas studentu sarasas
 ```c++
-if (isAwesome){
-  return true
-}
+std::ifstream duomenys("kursiokai.txt");
+
+        try{
+            if(duomenys.fail())
+            {
+                throw std::exception();
+            }
+        }
+        catch (std::exception &e1)
+        {   e1.what();
+            cout<<"Tokio failo nera. Baigiu programa.";
+            exit(1);
+        }
 ```
 
 ### Versija v0.4
@@ -97,7 +107,7 @@ if (isAwesome){
 | 1000 | 0.15 | 
 | 10000 | 7.31 | 
 
-###Versija v0.5
+### Versija v0.5
 
 #### Reikalavimai
 
@@ -140,7 +150,6 @@ if (isAwesome){
 |Perkeliant| 10000 |  0.372993 | 0.234045 |  0.369981 |
 |Trinant| | 15.4193 |  0.226891 | 0.409104 |
 |Perkeliant| 100000 | 3.71094 | 2.4352 | 4.00827 |
-
 |Trinant| | way too long | 1.88293 | 4.2199 |
 
 
