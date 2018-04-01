@@ -4,7 +4,8 @@
 #include <list>
 #include <vector>
 #include <deque>
-    void nuskaitymas_vec(std::vector<studentas>& S, std::ifstream &duomenys);
-    void nuskaitymas_list(std::list<studentas>& stud_list, std::ifstream &duomenys);
-    void nuskaitymas_dek(std::deque<studentas>& stud_dek, std::ifstream &duomenys);
+#include <fstream>
+    void nuskaitymas_vec(std::vector<studentas>& S, std::ifstream &duomenys, int paz_kiekis);
+    void nuskaitymas_list(std::list<studentas>& stud_list, std::ifstream &duomenys, int paz_kiekis);
+    void nuskaitymas_dek(std::deque<studentas>& stud_dek, std::ifstream &duomenys, int paz_kiekis);
 #endif

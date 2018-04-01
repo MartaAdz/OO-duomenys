@@ -1,5 +1,4 @@
 #include <iostream>
-#include <iomanip>
 #include <vector>
 #include <random>
 #include <fstream>
@@ -8,10 +7,11 @@
 #include <chrono>
 #include "vidurkis.h"
 #include "mediana.h"
+#include "studentas.h"
 
 using std::cout; using std::endl; using std::vector; using std::string; using std::cin;
 
-void studentu_generavimas(unsigned int studentu_kiekis){
+void studentu_generavimas(unsigned int studentu_kiekis, int paz_kiekis){
         vector<int> nDarbas;
         std::ofstream  f("kursiokai.txt");
         for(int i=0; i<studentu_kiekis; i++)
@@ -25,7 +25,7 @@ void studentu_generavimas(unsigned int studentu_kiekis){
             std::uniform_int_distribution<int> dst(1,10);
 
             int paz;
-            for(int i=0; i!=3; i++)
+            for(int i=0; i!=paz_kiekis; i++)
             {
                 paz=dst(gen);
                 nDarbas.push_back(paz);

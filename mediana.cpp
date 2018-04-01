@@ -5,9 +5,9 @@
 #include "studentas.h"
 #include "mediana.h"
 
-using std::cout; using std::endl; using std::vector; using std:: swap; using std::setw;
+using std::cout; using std::endl; using std::setw;
 
-double mediana(vector<int>& pazymiai, int kiek, int egzaminas){
+double mediana(std::vector<int>& pazymiai, int kiek, int egzaminas){
 
     std::sort (pazymiai.begin(), pazymiai.end());
     int j=pazymiai.size();

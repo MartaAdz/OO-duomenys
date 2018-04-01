@@ -1,13 +1,13 @@
 #include <iostream>
 #include <iomanip>
-#include <vector>
-#include <random>
 #include <fstream>
+#include <random>
 #include <algorithm>
-#include <list>
 #include <ctime>
 #include <ratio>
 #include <chrono>
+#include <vector>
+#include <list>
 #include <deque>
 #include "studentas.h"
 #include "vidurkis.h"
@@ -18,11 +18,11 @@
 #include "rikiavimas.h"
 #include "skirstymas.h"
 
-using std::cout; using std::cin; using std::endl; using std::string; using std::vector;
-using std::setw; using std::swap; using std::list; using std::deque;
+using std::cout; using std::cin; using std::endl; using std::string; using std::vector; using std::list; using std::deque;
 int main()
 {
-    cout<<"1-nuskaityti is failo, 2-ivesti ranka. \n";
+    cout<<"STUDENTU INFORMACIJA APDOROJANTI PROGRAMA"<<endl;
+    cout<<"1 - Nuskaityti is failo\n2 - Ivesti ranka \n";
 
     int p;
     cin>>p;
@@ -30,10 +30,12 @@ int main()
     if(p==1){
 
         unsigned int stud_kiekis;
-        cout<<"kiek studentu sugeneruoti: ";
+        cout<<"Generuojamu studentu kiekis: ";
         cin>>stud_kiekis;
 
-        studentu_generavimas(stud_kiekis);
+        const int paz_kiekis = 5;
+
+        studentu_generavimas(stud_kiekis, paz_kiekis);
 
         std::ifstream duomenys("kursiokai.txt");
 
@@ -49,7 +51,7 @@ int main()
             exit(1);
         }
 
-       cout<<"1-naudoti deque\n2-naudoti list\n3-naudoti vector\n";
+       cout<<"Pasirinkite konteinerio tipa:\n1 - Naudoti deque\n2 - Naudoti list\n3 - Naudoti vector\n";
        int naud;
        cin>>naud;
 
@@ -60,7 +62,7 @@ int main()
             high_resolution_clock::time_point t_dek_1 = high_resolution_clock::now();
 
             deque<studentas> stud_dek;
-            nuskaitymas_dek(stud_dek, duomenys);
+            nuskaitymas_dek(stud_dek, duomenys, paz_kiekis);
             rikiavimas_dek(stud_dek);
 
             high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
@@ -99,7 +101,7 @@ int main()
             high_resolution_clock::time_point t_list_1 = high_resolution_clock::now();
 
             list<studentas> stud_list;
-            nuskaitymas_list(stud_list, duomenys);
+            nuskaitymas_list(stud_list, duomenys, paz_kiekis);
             rikiavimas_list(stud_list);
 
             high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
@@ -122,7 +124,7 @@ int main()
             {
                 list<studentas> geri;
                 list<studentas> blogi;
-                skirstymas_list(stud_list, stud_kiekis, geri, blogi);
+                skirstymas_list(stud_list, geri, blogi);
                 stud_toFile_list(geri);
             }
 
@@ -138,7 +140,7 @@ int main()
             high_resolution_clock::time_point t_vec_1 = high_resolution_clock::now();
 
             vector<studentas> S;
-            nuskaitymas_vec (S, duomenys);
+            nuskaitymas_vec (S, duomenys, paz_kiekis);
             rikiavimas_vec(S);
 
             high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
@@ -181,25 +183,24 @@ int main()
 
             cout<<"Iveskite studento varda ir pavarde: ";
             string var, pav;
-            cin>>var;
+            cin>>var>>pav;
             stud.vardas=var;
-            cin>>pav;
             stud.pavarde=pav;
 
-            cout<<"1-generuoti pazymius, 2-ivesti pazymius: ";
+            cout<<"1 - Generuoti pazymius\n2 - Ivesti pazymius \n";
             int p;
             cin>>p;
 
 
             if(p==1){
 
-                cout<<"Kiek pazymiu norite sugeneruoti?";
+                cout<<"Generuojamu pazymiu kiekis: ";
                 int kiekis;
                 cin>>kiekis;
 
-                iverciai (stud,kiekis);
+                iverciai (stud, kiekis);
 
-                for(int j=0;j<kiekis;j++) cout<<stud.pazymiai[j]<<" ";
+                for(int j=0; j<kiekis; j++) cout<<stud.pazymiai[j]<<" ";
 
                 cout<<"\n";
                 pasirinkimas(stud);
@@ -215,7 +216,7 @@ int main()
             }
 
             S.push_back(stud);
-            cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
+            cout<<"\n1 - Testi duomenu ivedima\n2 - Baigti duomenu ivedima\n";
             cin>>d;
         }
     }

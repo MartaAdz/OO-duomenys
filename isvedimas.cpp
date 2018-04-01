@@ -10,48 +10,32 @@
 #include "vidurkis.h"
 #include "mediana.h"
 
-using std::cout; using std::cin; using std::endl; using std::vector; using std::setw;
-using std::size_t; using std::list; using std::fixed; using std::setprecision;
+using std::cout; using std::cin; using std::endl; using std::setw;
+using std::size_t; using std::fixed; using std::setprecision;
 
 void pasirinkimas(studentas &S){
-    cout<<"Skaiciuojame galutini bala\n1-Naudoti vidurki\n2-Naudoti mediana"<<endl;
+    cout<<"Skaiciuojame galutini bala\n1 - Naudoti vidurki\n2 - Naudoti mediana"<<endl;
     int a;
     cin>>a;
     auto kintamieji=S.pazymiai.size()-1;
 
-    while(a!=1||a!=2)
-    {
-
         if(a==1)
         {
-
             auto nDarSuma=0;
             for(int i=0; i<kintamieji; i++) nDarSuma+=S.pazymiai[i];
 
             S.galBalasVid=vidurkis(nDarSuma, kintamieji, S.egzaminas);
-            cout.precision(3);
-            cout<<S.galBalasVid;
-            break;
+            cout<<fixed<<setprecision(2)<<S.galBalasVid;
         }
 
-                    else if(a==2)
-                    {
-                        S.galBalasMed=mediana (S.pazymiai, kintamieji, S.egzaminas);
-                        cout.precision (3);
-                        cout<<S.galBalasMed;
-                        break;
-                    }
-
-                    else
-                    {
-                        cout<<"Neteisingai ivestas pasirinkimas\nIveskite is naujo"<<endl;
-                        cin>>a;
-                    }
-
-                    break;
-            }
+        else if(a==2)
+        {
+            S.galBalasMed=mediana (S.pazymiai, kintamieji, S.egzaminas);
+            cout<<fixed<<setprecision(2)<<S.galBalasMed;
         }
-void stud_toFile_vec(vector<studentas>& S){
+
+}
+void stud_toFile_vec(std::vector<studentas>& S){
 
     std::ofstream f("kursas.dat");
      f<<std::left<<setw(20)<<"Vardas"
@@ -67,7 +51,7 @@ void stud_toFile_vec(vector<studentas>& S){
                         <<setw(20)<<fixed<<setprecision(2)<<S[c].galBalasMed<<endl;
         }
 }
-void stud_toFile_list(list<studentas>& stud_list){
+void stud_toFile_list(std::list<studentas>& stud_list){
 
     std::ofstream f("kursas.dat");
      f<<std::left<<setw(20)<<"Vardas"

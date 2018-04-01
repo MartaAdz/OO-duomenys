@@ -8,24 +8,15 @@
 using std::vector; using std::size_t; using std::list; using std::deque;
 
 void skirstymas_vec(vector<studentas>& S, unsigned int stud_kiekis, vector<studentas>& geras, vector<studentas>& blogas){
-    studentas tmp;
-    for (size_t i=0; i<stud_kiekis; i++)
-    {
 
-            if (S[i].galBalasVid<5)
-            {
-                S[i]=tmp;
-                blogas.push_back(tmp);
-            }
-            else
-            {
-                S[i]=tmp;
-                geras.push_back(tmp);
-            }
+    for (size_t i=0; i!=stud_kiekis; i++)
+    {
+            if (S[i].galBalasVid<5) blogas.push_back(S[i]);
+            else geras.push_back(S[i]);
     }
 }
 vector<studentas> skirstymas_trinant_vec(vector<studentas>& S, vector<studentas>& blogas){
-    vector<studentas>::iterator it=S.begin();
+    vector<studentas>::iterator it = S.begin();
     while (it!=S.end())
     {
         if ((*it).galBalasVid<5)
@@ -37,12 +28,12 @@ vector<studentas> skirstymas_trinant_vec(vector<studentas>& S, vector<studentas>
     }
     return blogas;
 }
-void skirstymas_list(list<studentas>& stud_list, unsigned int stud_kiekis,
+void skirstymas_list(list<studentas>& stud_list,
                      list<studentas>& geri, list<studentas>& blogi){
 
     for (auto it=stud_list.begin(); it!=stud_list.end(); it++)
     {
-            if ((*it).galBalasVid<5) blogi.push_back(*it); //10*3*60/100=18
+            if ((*it).galBalasVid<5) blogi.push_back(*it);
             else geri.push_back(*it);
     }
 }
