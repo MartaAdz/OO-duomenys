@@ -8,6 +8,7 @@
 #include <chrono>
 #include "vidurkis.h"
 #include "mediana.h"
+
 using std::cout; using std::endl; using std::vector; using std::string; using std::cin;
 
 void studentu_generavimas(unsigned int studentu_kiekis){
@@ -57,6 +58,7 @@ void iverciai(studentas &S, int kiekis){
 
 }
 vector<int> ivesti_pazymiai(studentas &stud){
+
                 cout<<"Iveskite pazymius. (Pabaigus ivesti -1)"<<endl;
                 int pazymys;
                 for(int j=0; j<stud.pazymiai.size()+1; j++)
@@ -72,5 +74,7 @@ vector<int> ivesti_pazymiai(studentas &stud){
 
                     if (pazymys==-1) break;
                 }
+
             return stud.pazymiai;
+
 }

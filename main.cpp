@@ -62,16 +62,37 @@ int main()
             deque<studentas> stud_dek;
             nuskaitymas_dek(stud_dek, duomenys);
             rikiavimas_dek(stud_dek);
-            //stud_toFile_dek(stud_dek);
-            deque<studentas> geri;
-            deque<studentas> blogi;
-            skirstymas_dek(stud_dek, stud_kiekis, geri, blogi);
-            skirstymas_trinant_dek(stud_dek, blogi);
-            stud_toFile_dek(blogi);
 
             high_resolution_clock::time_point t_dek_2 = high_resolution_clock::now();
             duration<double> time_dek = duration_cast<duration<double>>(t_dek_2 - t_dek_1);
-            cout << "su deque uztruko " << time_dek.count() << " sekundziu.\n";
+
+            cout<<"1 - Skirstyti trinant is bendro konteinerio\n2 - Skirstyti perkeliant i du atskirus konteinerius\n";
+            int skirstymas;
+            cin>>skirstymas;
+
+            high_resolution_clock::time_point t_dek_3 = high_resolution_clock::now();
+
+            if (skirstymas==1)
+            {
+                deque<studentas> blogi;
+                skirstymas_trinant_dek(stud_dek, blogi);
+                stud_toFile_dek(stud_dek);
+
+            }
+            if (skirstymas==2)
+            {
+                deque<studentas> geri;
+                deque<studentas> blogi;
+                skirstymas_dek(stud_dek, stud_kiekis, geri, blogi);
+                stud_toFile_dek(geri);
+            }
+
+                high_resolution_clock::time_point t_dek_4 = high_resolution_clock::now();
+                duration<double> time_dek_2 = duration_cast<duration<double>>(t_dek_4 - t_dek_3);
+
+            cout<<"Faile issaugoti pazangus studentai.\n";
+
+            cout << "Su deque uztruko " << time_dek.count()+time_dek_2.count()<< " sekundziu.\n";
         }
         else if (naud==2) {
 
@@ -80,15 +101,37 @@ int main()
             list<studentas> stud_list;
             nuskaitymas_list(stud_list, duomenys);
             rikiavimas_list(stud_list);
-            stud_toFile_list(stud_list);
-            list<studentas> geri;
-            list<studentas> blogi;
-            skirstymas_list(stud_list, stud_kiekis, geri, blogi);
-            skirstymas_trinant_list(stud_list, blogi);
 
             high_resolution_clock::time_point t_list_2 = high_resolution_clock::now();
             duration<double> time_list = duration_cast<duration<double>>(t_list_2 - t_list_1);
-            cout << "su listu uztruko " << time_list.count() << " sekundziu.\n";
+
+            cout<<"1 - Skirstyti trinant is bendro konteinerio\n2 - Skirstyti perkeliant i du atskirus konteinerius\n";
+            int skirstymas;
+            cin>>skirstymas;
+
+            high_resolution_clock::time_point t_list_3 = high_resolution_clock::now();
+
+            if (skirstymas==1)
+            {
+                list<studentas> blogi;
+                skirstymas_trinant_list(stud_list, blogi);
+                stud_toFile_list(stud_list);
+
+            }
+            if (skirstymas==2)
+            {
+                list<studentas> geri;
+                list<studentas> blogi;
+                skirstymas_list(stud_list, stud_kiekis, geri, blogi);
+                stud_toFile_list(geri);
+            }
+
+            high_resolution_clock::time_point t_list_4 = high_resolution_clock::now();
+            duration<double> time_list_2 = duration_cast<duration<double>>(t_list_4 - t_list_3);
+
+            cout<<"Faile issaugoti pazangus studentai.\n";
+
+            cout << "Su list uztruko " << time_list.count() + time_list_2.count() << " sekundziu.\n";
         }
         else if (naud==3){
 
@@ -97,15 +140,37 @@ int main()
             vector<studentas> S;
             nuskaitymas_vec (S, duomenys);
             rikiavimas_vec(S);
-            stud_toFile_vec(S);
-            vector<studentas> geras;
-            vector<studentas> blogas;
-            skirstymas_vec(S, stud_kiekis, geras, blogas);
-            skirstymas_trinant_vec(S, blogas);
 
             high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
             duration<double> time_vec = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
-            cout << "su vektoriumi uztruko " << time_vec.count() << " sekundziu.";
+
+            cout<<"1 - Skirstyti trinant is bendro konteinerio\n2 - Skirstyti perkeliant i du atskirus konteinerius\n";
+            int skirstymas;
+            cin>>skirstymas;
+
+            high_resolution_clock::time_point t_vec_3 = high_resolution_clock::now();
+
+            if (skirstymas==1)
+            {
+                vector<studentas> blogas;
+                skirstymas_trinant_vec(S, blogas);
+                stud_toFile_vec(S);
+
+            }
+            if (skirstymas==2)
+            {
+                vector<studentas> geras;
+                vector<studentas> blogas;
+                skirstymas_vec(S, stud_kiekis, geras, blogas);
+                stud_toFile_vec(geras);
+            }
+
+            high_resolution_clock::time_point t_vec_4 = high_resolution_clock::now();
+            duration<double> time_vec_2 = duration_cast<duration<double>>(t_vec_4 - t_vec_3);
+
+            cout<<"Faile issaugoti pazangus studentai.\n";
+
+            cout << "Su vektoriumi uztruko " << time_vec.count() + time_vec_2.count() << " sekundziu.";
         }
     }
     else if(p==2) {
@@ -134,7 +199,7 @@ int main()
 
                 iverciai (stud,kiekis);
 
-                for(int j=0;j<kiekis;j++) cout<<stud.pazymiai[j]<<" "; //isveda pazymius
+                for(int j=0;j<kiekis;j++) cout<<stud.pazymiai[j]<<" ";
 
                 cout<<"\n";
                 pasirinkimas(stud);
@@ -144,18 +209,16 @@ int main()
             {
                 ivesti_pazymiai(stud);
                 cout<<"Iveskite egzamino pazymi: ";
-                int egzaminas;
-                cin>>egzaminas;
-                stud.egzaminas=egzaminas;
+                cin>>stud.egzaminas;
 
                 pasirinkimas(stud);
             }
 
-        S.push_back(stud);
-        cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
-        cin>>d;
+            S.push_back(stud);
+            cout<<"\n1 - testi duomenu ivedima, 2 - baigti duomenu ivedima: ";
+            cin>>d;
+        }
     }
-}
 
  return 0;
 }
