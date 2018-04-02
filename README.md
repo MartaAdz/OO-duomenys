@@ -1,8 +1,30 @@
 # Duomenys
 
 
-##
+## Naudojimosi instrukcija
 
+Pasileidziame programa. Iskart paklausiama ar nuskaitysime is failo, ar ivedinesime ranka. 
+
+### Nuskaitymas is failo
+
+1. Reikia sugeneruoti faila. Programa paklausia, kiek studentu noresime generuoti.
+2. Pasirenkame konteinerio tipa, kuriame bus saugomi studentai (deque, list ar vector). Programa sugeneruoja studentus i pasirinkta konteineri ir issaugo faile "kursiokai.txt".
+3. Pasirenkame skirstymo strategija. 
+4. Programa informuoja, kad faile "kursas.dat" issaugoti pazangus studentai. T.y. tokie studentai, kuriu galutinis balas (naudojant vidurki) yra daugiau nei 5.
+5. Programa paraso, kiek laiko uztruko programos vykdymas: 
+- studentu konteinerio sukurimas, nuskaitymas is failo, 
+- isrikiavimas pagal pavardes,
+- suskirstymas i dvi grupes
+- pazangiu studentu irasymas i faila
+
+### Ivedimas ranka
+
+1. Ivedame studento varda ir pavarde (tarp ju paspaudziame tarpa arba enter)
+2. Pasirenkame ar pazymius generuos programa, ar ivedinesime ranka
+- generuojant random, naudojamas random generatorius. Sugeneruojamas pasirinktas kiekis namu darbu ivertinimu ir egzamino pazymys. Jie isvedami i ekrana.
+- ranka vedama iki tol, kol ivedamas -1. Ivedus netinkama simboli, ismetamas klaidos pranesimas. Paprasoma ivesti egzamino pazymi.
+3. Pasirenkame ar skaiciuojant galutini bala naudosime mediana ar vidurki.
+4. Pasirenkame ar tesime duomenu irasyma.
 
 
 
@@ -138,8 +160,14 @@ std::ifstream duomenys("kursiokai.txt");
 - Bendro studentai konteinerio skaidymas (rušiavimas) panaudojant du naujus konteinerius: "vargšiuku" ir "kietiaku". Tokiu budu tas pats studentas yra dvejuose konteineriuose: studentai ir (vargšiukai arba kietiakai). 
 - Bendro studentu konteinerio skaidymas (rušiavimas) panaudojant tik viena nauja konteineri: "vargšiukai". Tokiu budu, jei studentas yra vargšiukas, ji turime ikelti i "vargšiuku" konteineri ir ištrinti ir bendro studentai konteinerio. Tokiu budu, studentai konteineryje liks vien tik kietiakai.
 
-*Studentu failu generavimo laikai*
 
+#### Realizacija
+
+1. Sukurtos atskiros funkcijos su elementu trynimu is konteineriu.
+
+2. Naudoti algoritmai deque tipo konteineriui.
+
+*Studentu failu generavimo laikai*
 
 |Strategija| Elementu skaicius  |   vector  |  list  | deque |
 |---|---|---|---|---|
