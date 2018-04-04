@@ -1,5 +1,15 @@
 # Duomenys
 
+# Vertinimas
+
+## Pastabos
+
+- Truksta cmake failo
+- Atsitiktiniu skaiciu generavimas nelabai atsitiktinis, bet cia panasu, kad g++ kliurka.
+
+## Pagyrimai
+
+- Visa kita
 
 ## Naudojimosi instrukcija
 
@@ -32,18 +42,18 @@ Pasileidziame programa. Iskart paklausiama ar nuskaitysime is failo, ar ivedines
 
 ### Pradine uzduotis
 
-Parašykite programa, kuri nuskaito šiuos studentu duomenis:
+ParaÅ¡ykite programa, kuri nuskaito Å¡iuos studentu duomenis:
 -varda ir pavarde
 -n atliktu namu darbu rezultatus, o taip pat galutinio egzamino rezultata.
 
-Tuomet iš šiu duomenu, suskaiciuoja galutini bala :
+Tuomet iÅ¡ Å¡iu duomenu, suskaiciuoja galutini bala :
  `galutinis = 0.4 * vidurkis + 0.6 * egzaminas` 
 
 ### Versija v0.1
 
 #### Reikalavimai
 
-1. Pagal uduoties reikalavimus realizuokite programa ir atspausdinkite ekrane aktualia informacija:
+1. Pagal uÅ¾duoties reikalavimus realizuokite programa ir atspausdinkite ekrane aktualia informacija:
 - studento varda ir pavarde,
 - namu darbu ir egzamino rezultatus
 - galutini bala dvieju skaiciu po kablelio tikslumu
@@ -69,7 +79,7 @@ t.y. tik ivedimo metu vartotojas nusprendzia kuomet jis jau ivede visu namu darb
 
 1. Duomenis ne tik ivesti, bet ir nuskaityti is failu.
 
-2. Nuskaiciuoti duomenis is failo. Reikalavimai output’ui: studentai turi buto surusiuoti pagal vardus (ar pavardes) ir stulpeliai butu graziai "islygiuoti".
+2. Nuskaiciuoti duomenis is failo. Reikalavimai outputâ€™ui: studentai turi buto surusiuoti pagal vardus (ar pavardes) ir stulpeliai butu graziai "islygiuoti".
 
 #### Realizacija
 
@@ -82,9 +92,9 @@ t.y. tik ivedimo metu vartotojas nusprendzia kuomet jis jau ivede visu namu darb
 
 1. Kur tikslinga, programoje naudokite (jeigu dar nenaudojote) struct'uras
 
-2. Funkcijas, naujus duomenu tipus (struct’uras) perkelkite i antrastinius (angl. header (*.h)) failus.
+2. Funkcijas, naujus duomenu tipus (structâ€™uras) perkelkite i antrastinius (angl. header (*.h)) failus.
 
-3. Kur tikslinga, panaudokite išimciu valdyma (angl. Exception Handling)
+3. Kur tikslinga, panaudokite iÅ¡imciu valdyma (angl. Exception Handling)
 
 #### Realizacija
 
@@ -111,7 +121,7 @@ std::ifstream duomenys("kursiokai.txt");
 
 #### Reikalavimai
 
-1. Sugeneruokite penkis atsitiktinius studentu failus, sudarytus is: 100, 1000, 10000, 100000 irasu. Vardus ir Pavardes generuoti "šabloninius" (Vardas1 Pavarde1, Vardas2 Pavarde2 ir t.t.)
+1. Sugeneruokite penkis atsitiktinius studentu failus, sudarytus is: 100, 1000, 10000, 100000 irasu. Vardus ir Pavardes generuoti "Å¡abloninius" (Vardas1 Pavarde1, Vardas2 Pavarde2 ir t.t.)
 2. Surusiuokite (padalinkite) studentus i dvi kategorijas:
 - Studentai, kurie surinko < 5 uz namu darbu uzduotis
 - Studentai, kurie surinko >= 5 uz namu darbu uzduotis ir buvo prileisti prie egzamino.
@@ -133,7 +143,7 @@ std::ifstream duomenys("kursiokai.txt");
 
 #### Reikalavimai
 
-1. Ismatuokite programos veikimo sparta (be failu generavimo) priklausomai nuo naudojamo vieno iš triju konteineriu:
+1. Ismatuokite programos veikimo sparta (be failu generavimo) priklausomai nuo naudojamo vieno iÅ¡ triju konteineriu:
 - vector
 - list
 - deque
@@ -157,8 +167,8 @@ std::ifstream duomenys("kursiokai.txt");
 
 1. Visiems trims konteineriu tipams (vector, list ir deque) ismatuokite programos veikimo sparta priklausomai nuo studentu dalijimo i dvi kategorijas strategijos:
 
-- Bendro studentai konteinerio skaidymas (rušiavimas) panaudojant du naujus konteinerius: "vargšiuku" ir "kietiaku". Tokiu budu tas pats studentas yra dvejuose konteineriuose: studentai ir (vargšiukai arba kietiakai). 
-- Bendro studentu konteinerio skaidymas (rušiavimas) panaudojant tik viena nauja konteineri: "vargšiukai". Tokiu budu, jei studentas yra vargšiukas, ji turime ikelti i "vargšiuku" konteineri ir ištrinti ir bendro studentai konteinerio. Tokiu budu, studentai konteineryje liks vien tik kietiakai.
+- Bendro studentai konteinerio skaidymas (ruÅ¡iavimas) panaudojant du naujus konteinerius: "vargÅ¡iuku" ir "kietiaku". Tokiu budu tas pats studentas yra dvejuose konteineriuose: studentai ir (vargÅ¡iukai arba kietiakai). 
+- Bendro studentu konteinerio skaidymas (ruÅ¡iavimas) panaudojant tik viena nauja konteineri: "vargÅ¡iukai". Tokiu budu, jei studentas yra vargÅ¡iukas, ji turime ikelti i "vargÅ¡iuku" konteineri ir iÅ¡trinti ir bendro studentai konteinerio. Tokiu budu, studentai konteineryje liks vien tik kietiakai.
 
 
 #### Realizacija
