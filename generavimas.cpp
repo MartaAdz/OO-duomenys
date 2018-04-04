@@ -20,7 +20,7 @@ void studentu_generavimas(unsigned int studentu_kiekis, int paz_kiekis){
 
             using namespace std::chrono;
             std::random_device rseed;
-            std::mt19937 gen(rseed()*static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().
+            std::mt19937 gen(rseed()*1000*static_cast<long unsigned int>(std::chrono::high_resolution_clock::now().
             time_since_epoch().count()));
             std::uniform_int_distribution<int> dst(1,10);
 
