@@ -1,3 +1,5 @@
+﻿# Sveiki. Man GAL pavyko sita padaryt
+
 # Duomenys
 
 # Vertinimas
