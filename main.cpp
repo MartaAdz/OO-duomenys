@@ -8,7 +8,7 @@
 #include <chrono>
 #include <vector>
 #include "studentas.h"
-#include "isvedimas.h"
+#include "funkcijos.h"
 
 
 int main()
