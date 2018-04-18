@@ -44,7 +44,9 @@ Pasileidziame programa.
 
 1. `struct` perdaryta į `class`. Palyginta sparta.
 
-2.  Atliktas tyrimas su optimizavimo flag'ais.
+2. Atliktas tyrimas su optimizavimo flag'ais.
+
+3. Darbas su branch'ais. Sukurtas `develop` ir padarytas merge su `master`.
 
 
 
