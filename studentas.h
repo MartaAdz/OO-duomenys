@@ -9,7 +9,7 @@
 #include <algorithm>
 
 class studentas{
-public:
+private:
     std::string vardas;
     std::string pavarde;
     std::vector <int> pazymiai;

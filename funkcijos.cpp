@@ -46,24 +46,22 @@ void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int 
 
 }
 
-bool lyginimas_pavarde(const studentas &rhs, const studentas &lhs) { return lhs.pavarde>rhs.pavarde;}
-bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs){ return lhs.egzaminas>rhs.egzaminas;}
+bool lyginimas_pavarde(const studentas &rhs, const studentas &lhs) { return lhs.getPavarde()>rhs.getPavarde();}
+bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs){ return lhs.getEgzaminas()>rhs.getEgzaminas();}
 void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end(), lyginimas_egzaminas); }
 
 bool arGeras(studentas &s) {
     std::vector<int> paz = s.getPazymiai();
     int egz = s.getEgzaminas();
     s.setGalutinis(paz, egz);
-    s.getBalas();
-    if (s.galBalas>=5) return true;
+    if (s.getBalas()>=5) return true;
 }
 
 bool arBlogas(studentas &s) {
     std::vector<int> paz = s.getPazymiai();
     int egz = s.getEgzaminas();
     s.setGalutinis(paz, egz);
-    s.getBalas();
-    if (s.galBalas<5) return true;
+    if (s.getBalas()<5) return true;
 }
 
 void skirstymas(std::vector<studentas>& S, std::vector<studentas>& blogi){
