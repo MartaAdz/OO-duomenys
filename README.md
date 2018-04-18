@@ -18,7 +18,7 @@ Pasileidziame programa.
 *Studentu failu generavimo laikai*
 
 | Elementu skaicius  |   struct  |  class  | 
-|---|---|---|---|
+|---|---|---|
 | 100 | 0.004045 | 0.00601 | 
 | 1000 | 0.037601 | 0.006894 |
 | 10000 | 0.377501 | 0.250615 |
