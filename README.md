@@ -25,7 +25,7 @@ Pasileidziame programa.
 | 100000 | 4.13496 | 2.95832 | 3.56122 | 3.71297 | 3.80577 |
 
 - Naudojant class programa vykdoma greiciau.
-- Naudojant optimizavimo flag'us, programos vykdymo laikas pailgejo. ![alt text](https://www.wykop.pl/cdn/c3201142/comment_IvKgFbVPVXf9TVTYL8eBMUFjqcvcuosL.jpg)
+- Naudojant optimizavimo flag'us, programos vykdymo laikas pailgejo. :D :D :D 
 
 
 ### Versija v0.1
