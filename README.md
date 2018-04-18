@@ -1,5 +1,3 @@
-﻿# Sveiki. Man GAL pavyko sita padaryt
-
 # Objektiškai orientuota Duomenų apdorojimo programa
 
 
