@@ -17,12 +17,15 @@ Pasileidziame programa.
 
 *Studentu failu generavimo laikai*
 
-| Elementu skaicius  |   struct  |  class  | 
-|---|---|---|
-| 100 | 0.004045 | 0.00601 | 
-| 1000 | 0.037601 | 0.006894 |
-| 10000 | 0.377501 | 0.250615 |
-| 100000 | 4.13496 | 2.95832 | 
+| Elementu skaicius  |   struct  |  class  |  -O1  |  -O2  |  -O3  |
+|---|---|---|---|---|---|
+| 100 | 0.004045 | 0.00601 | 0.004324 | 0.003984 | 0.05252 |
+| 1000 | 0.037601 | 0.006894 | 0.019054 | 0.016365 | 0.034318 |
+| 10000 | 0.377501 | 0.250615 | 0.343647 | 0.357715 | 0.310707 |
+| 100000 | 4.13496 | 2.95832 | 3.56122 | 3.71297 | 3.80577 |
+
+- Naudojant class programa vykdoma greiciau.
+- Naudojant optimizavimo flag'us, programos vykdymo laikas pailgejo. ![alt text](http://i0.kym-cdn.com/photos/images/facebook/000/993/875/084.png)
 
 
 ### Versija v0.1
@@ -39,8 +42,9 @@ Pasileidziame programa.
 
 #### Realizacija
 
-1. `struct` perdaryta į `class`.
-2.  
+1. `struct` perdaryta į `class`. Palyginta sparta.
+
+2.  Atliktas tyrimas su optimizavimo flag'ais.
 
 
 
