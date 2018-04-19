@@ -19,21 +19,16 @@ private:
 
 public:
 
-    studentas(): galBalas {0} {}
-    studentas(std::istream& duomenys);
+    studentas(): galBalas {0} {} //default kontuktorius
+    studentas(std::istream& duomenys); //konstruktorius su nuskaitymu is failo
+
     inline std::string getVardas() const {return vardas;}
-    std::string getPavarde() const {return pavarde;}
-    std::vector<int> getPazymiai() const {return pazymiai;}
-    int getEgzaminas() const {return egzaminas;}
-    double getBalas() const { return galBalas;}
+    inline std::string getPavarde() const {return pavarde;}
+    inline double getBalas() const { return galBalas;}
+    inline int getEgzaminas() const {return egzaminas;}
 
-
-
-
-    void setGalutinis(std::vector<int> &pazymiai, int &egzaminas);
-
-    bool arGeras();
-    bool arBlogas();
+//    bool arGeras();
+//    bool arBlogas();
 };
 
 bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs);

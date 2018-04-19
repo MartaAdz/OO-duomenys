@@ -33,7 +33,7 @@ int main()
         }
         catch (std::exception &e1)
         {   e1.what();
-            std::cout<<"Tokio failo nera. Baigiu programa.";
+            std::cerr<<"Tokio failo nera. Baigiu programa.";
             exit(1);
         }
 
@@ -46,7 +46,7 @@ int main()
             rikiavimas_vec(S);
 
             std::vector<studentas> blogi;
-//            skirstymas(S, blogi);
+            skirstymas(S, blogi);
             stud_toFile_vec(S);
 
 
