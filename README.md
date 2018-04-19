@@ -17,15 +17,15 @@ Pasileidziame programa.
 
 *Studentu failu generavimo laikai*
 
-| Elementu skaicius  |   struct  |  class  |  -O1  |  -O2  |  -O3  |
+| Elementu skaicius  |   struct  |  class  |  class su -O1  |  class su -O2  |  class su -O3  |
 |---|---|---|---|---|---|
-| 100 | 0.004045 | 0.00601 | 0.004324 | 0.003984 | 0.05252 |
-| 1000 | 0.037601 | 0.006894 | 0.019054 | 0.016365 | 0.034318 |
-| 10000 | 0.377501 | 0.250615 | 0.343647 | 0.357715 | 0.310707 |
-| 100000 | 4.13496 | 2.95832 | 3.56122 | 3.71297 | 3.80577 |
+| 100 | 0.004045 | 0 | 0.008324 | 0 | 0.003672 |
+| 1000 | 0.037601 | 0.050548 | 0.03591 | 0.018759 | 0.014008 |
+| 10000 | 0.377501 | 0.255678 | 0.303955 | 0.227008 | 0.307057 |
+| 100000 | 4.13496 | 2.73485 | 2.64974 | 2.43884 | 2.67078 |
 
 - Naudojant class programa vykdoma greiciau.
-- Naudojant optimizavimo flag'us, programos vykdymo laikas pailgejo. :D :D :D 
+- Naudojant optimizavimo flag'us, programos vykdymo laikas sokinejo, nebuvo vieningos tendencijos. :D :D :D 
 
 
 ### Versija v0.1
