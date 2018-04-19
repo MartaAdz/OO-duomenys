@@ -15,42 +15,22 @@ private:
     std::vector <int> pazymiai;
     int egzaminas;
     double galBalas;
+    void stud_fromFile(std::istream &duomenys);
 
 public:
 
-    studentas(): galBalas {0} {}
+    studentas(): galBalas {0} {} //default kontuktorius
+    studentas(std::istream& duomenys); //konstruktorius su nuskaitymu is failo
 
-    std::string getVardas() const {return vardas;}
-    std::string getPavarde() const {return pavarde;}
-    std::vector<int> getPazymiai() const {return pazymiai;}
-    int getEgzaminas() const {return egzaminas;}
-    double getBalas() const { return galBalas;}
+    inline std::string getVardas() const {return vardas;}
+    inline std::string getPavarde() const {return pavarde;}
+    inline double getBalas() const { return galBalas;}
+    inline int getEgzaminas() const {return egzaminas;}
 
-
-    void stud_fromFile(std::istream &duomenys){
-
-        int paz;
-        int paz_kiekis = 5;
-
-        duomenys >> vardas >> pavarde;
-
-        for (size_t i=0; i!=paz_kiekis; i++){
-
-            duomenys>>paz;
-            pazymiai.push_back(paz);
-        }
-        duomenys>>egzaminas;
-    }
-
-    void setGalutinis(std::vector<int> &pazymiai, int &egzaminas){
-
-        auto nDarSuma=0;
-        for(int i=0; i<pazymiai.size()-1; i++) nDarSuma+=pazymiai[i];
-        galBalas = 0.4 * (nDarSuma/pazymiai.size()-1)+0.6 * egzaminas;
-
-    }
-
-
+//    bool arGeras();
+//    bool arBlogas();
 };
+
+bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs);
 
 #endif
