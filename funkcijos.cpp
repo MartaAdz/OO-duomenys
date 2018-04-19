@@ -47,16 +47,14 @@ void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int 
 
 void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end(), lyginimas_egzaminas); }
 
-bool arGeras(studentas &s) {if (s.getBalas()>=5) return true;}
-bool arBlogas(studentas &s) { if (s.getBalas()<5) return true;}
+bool arGeras(const studentas &s) {if (s.getBalas()>=5) return true;}
+bool arBlogas(const studentas &s) { if (s.getBalas()<5) return true;}
 
 void skirstymas(std::vector<studentas>& S, std::vector<studentas>& blogi){
 
     std::remove_copy_if(S.begin(), S.end(), std::back_inserter(blogi), arGeras);
     S.erase(remove_if(S.begin(), S.end(), arBlogas), S.end());
-
 }
-
 
 void stud_toFile_vec(std::vector<studentas>& S){
 

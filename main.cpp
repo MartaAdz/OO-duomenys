@@ -16,10 +16,12 @@ int main()
     std::cout<<"STUDENTU INFORMACIJA APDOROJANTI PROGRAMA"<<std::endl;
 
         unsigned int stud_kiekis;
-        std::cout<<"Generuojamu studentu kiekis: ";
-        std::cin>>stud_kiekis;
-
+        //std::cout<<"Generuojamu studentu kiekis: ";
+       // std::cin>>stud_kiekis;
+        stud_kiekis = 100;
         const int paz_kiekis = 5;
+
+        for (int i=0; i<=3; i++) {
 
         studentu_generavimas(stud_kiekis, paz_kiekis);
 
@@ -39,6 +41,8 @@ int main()
 
 
         using namespace std::chrono;
+
+
         high_resolution_clock::time_point t_vec_1 = high_resolution_clock::now();
 
             std::vector<studentas> S;
@@ -53,11 +57,11 @@ int main()
             high_resolution_clock::time_point t_vec_2 = high_resolution_clock::now();
             duration<double> time = duration_cast<duration<double>>(t_vec_2 - t_vec_1);
 
-            std::cout<<"Faile issaugoti pazangus studentai.\n";
+            //std::cout<<"Faile issaugoti pazangus studentai.\n";
 
-            std::cout << "Uztruko " << time.count() << " sekundziu.";
-
-
+            std::cout << stud_kiekis <<" uztruko " << time.count() << " sekundziu.\n";
+            stud_kiekis*=10;
+        }
 
  return 0;
 }
