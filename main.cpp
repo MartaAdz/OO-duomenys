@@ -46,7 +46,7 @@ int main()
             rikiavimas_vec(S);
 
             std::vector<studentas> blogi;
-            skirstymas(S, blogi);
+//            skirstymas(S, blogi);
             stud_toFile_vec(S);
 
 

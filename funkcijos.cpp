@@ -46,31 +46,16 @@ void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int 
 
 }
 
-bool lyginimas_pavarde(const studentas &rhs, const studentas &lhs) { return lhs.getPavarde()>rhs.getPavarde();}
-bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs){ return lhs.getEgzaminas()>rhs.getEgzaminas();}
 void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end(), lyginimas_egzaminas); }
 
-bool arGeras(studentas &s) {
-    std::vector<int> paz = s.getPazymiai();
-    int egz = s.getEgzaminas();
-    s.setGalutinis(paz, egz);
-    if (s.getBalas()>=5) return true;
-}
-
-bool arBlogas(studentas &s) {
-    std::vector<int> paz = s.getPazymiai();
-    int egz = s.getEgzaminas();
-    s.setGalutinis(paz, egz);
-    if (s.getBalas()<5) return true;
-}
-
-void skirstymas(std::vector<studentas>& S, std::vector<studentas>& blogi){
-
-    std::remove_copy_if(S.begin(), S.end(), std::back_inserter(blogi), arGeras);
-    S.erase(remove_if(S.begin(), S.end(), arBlogas), S.end());
-
-}
-
+//void skirstymas(std::vector<studentas>& S, std::vector<studentas>& blogi){
+//
+//
+//    std::remove_copy_if(S.begin(), S.end(), std::back_inserter(blogi), arGeras);
+//    S.erase(remove_if(S.begin(), S.end(), arBlogas), S.end());
+//
+//}
+//
 
 void stud_toFile_vec(std::vector<studentas>& S){
 
@@ -84,9 +69,6 @@ void stud_toFile_vec(std::vector<studentas>& S){
 
     for(auto it = S.begin(); it != S.end() ; it++)
         {
-            std::vector<int> paz = (*it).getPazymiai();
-            int egz = (*it).getEgzaminas();
-            (*it).setGalutinis(paz, egz);
             f<<std::left<<std::setw(20)<<(*it).getVardas()
                         <<std::setw(20)<<(*it).getPavarde()
                         <<std::setw(20)<<std::fixed<<std::setprecision(2)<<(*it).getBalas()<<std::endl;
