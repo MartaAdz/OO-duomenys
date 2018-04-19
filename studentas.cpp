@@ -27,6 +27,9 @@ void studentas::stud_fromFile(std::istream &duomenys){
 
     }
 
+studentas::studentas(std::istream&duomenys){
+    stud_fromFile(duomenys);
+}
 bool studentas::arGeras() {
     if (galBalas>=5) return true;
 }

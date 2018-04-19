@@ -39,8 +39,7 @@ void studentu_generavimas(unsigned int studentu_kiekis, int paz_kiekis){
 void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int stud_kiekis){
 
     for (size_t i=0; i<stud_kiekis; i++){
-        studentas s;
-        s.stud_fromFile(duomenys);
+        studentas s (duomenys);
         S.push_back(s);
     }
 
