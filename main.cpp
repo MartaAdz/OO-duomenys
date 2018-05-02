@@ -21,7 +21,7 @@ int main()
         stud_kiekis = 100;
         const int paz_kiekis = 5;
 
-        for (int i=0; i<=3; i++) {
+       // for (int i=0; i<=3; i++) {
 
         studentu_generavimas(stud_kiekis, paz_kiekis);
 
@@ -61,7 +61,7 @@ int main()
 
             std::cout << stud_kiekis <<" uztruko " << time.count() << " sekundziu.\n";
             stud_kiekis*=10;
-        }
+        //}
 
  return 0;
 }
