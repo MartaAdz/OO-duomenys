@@ -30,14 +30,19 @@ void studentas::stud_fromFile(std::istream &duomenys){
 studentas::studentas(std::istream&duomenys){
     stud_fromFile(duomenys);
 }
-//bool studentas::arGeras() {
-//    if (galBalas>=5) return true;
-//}
-//
-//bool studentas::arBlogas() {
-//    if (galBalas<5) return true;
-//}
+bool operator<(const studentas&rhs, const studentas&lhs){
+        return (rhs.getBalas()<lhs.getBalas());
+}
+bool operator>(const studentas&rhs, const studentas&lhs){
+        return (rhs.getBalas()>lhs.getBalas());
+}
 
+
+bool operator!=(const studentas&rhs, const studentas&lhs){
+    return (rhs.getVardas()!=lhs.getVardas()&&rhs.getPavarde()!=lhs.getPavarde()&&rhs.getBalas()!=lhs.getBalas());
+}
+
+//bool dvi_grupes(const studentas &rhs, const studentas &lhs){}
 bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs){ return lhs.getEgzaminas()>rhs.getEgzaminas();}
 
 
