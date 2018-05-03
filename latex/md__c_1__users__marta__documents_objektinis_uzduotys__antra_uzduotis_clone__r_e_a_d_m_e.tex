@@ -1,0 +1,64 @@
+\subsection*{Naudojimosi instrukcija}
+
+Pasileidziame programa.
+
+
+\begin{DoxyEnumerate}
+\item Reikia sugeneruoti faila. Programa paklausia, kiek studentu noresime generuoti.
+\item Programa informuoja, kad faile \char`\"{}kursas.\+dat\char`\"{} issaugoti pazangus studentai. T.\+y. tokie studentai, kuriu galutinis balas (naudojant vidurki) yra daugiau nei 5.
+\item Programa paraso, kiek laiko uztruko programos vykdymas\+:
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item studentu konteinerio sukurimas, nuskaitymas is failo,
+\item isrikiavimas pagal egzamino pažymį,
+\item suskirstymas i dvi grupes
+\item pazangiu studentu irasymas i faila
+\end{DoxyItemize}
+
+\subsection*{Tyrimas}
+
+{\itshape Studentu failu generavimo laikai}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{6}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Elementu skaicius  }&\multicolumn{5}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*2)*5/6}|}{\cellcolor{\tableheadbgcolor}\textbf{ }}\\\cline{1-6}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Elementu skaicius  }&\multicolumn{5}{p{(\linewidth-\tabcolsep*6-\arrayrulewidth*2)*5/6}|}{\cellcolor{\tableheadbgcolor}\textbf{ }}\\\cline{1-6}
+\endhead
+100  &0.\+004045  &0  &0.\+008324  &0  &0.\+003672   \\\cline{1-6}
+1000  &0.\+037601  &0.\+050548  &0.\+03591  &0.\+018759  &0.\+014008   \\\cline{1-6}
+10000  &0.\+377501  &0.\+255678  &0.\+303955  &0.\+227008  &0.\+307057   \\\cline{1-6}
+100000  &4.\+13496  &2.\+73485  &2.\+64974  &2.\+43884  &2.\+67078   \\\cline{1-6}
+\end{longtabu}
+
+
+
+\begin{DoxyItemize}
+\item Naudojant class programa vykdoma greiciau.
+\item Naudojant optimizavimo flag\textquotesingle{}us, programos vykdymo laikas sokinejo, nebuvo vieningos tendencijos. \+:D \+:D \+:D
+\end{DoxyItemize}
+
+\subsubsection*{Versija v0.\+1}
+
+\paragraph*{Reikalavimai}
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily develop} branch\textquotesingle{}as.
+\item Palyginti {\ttfamily struct} ir {\ttfamily class} realizacijų spartą.
+\item Analizė priklausomai nuo kompiliatoriaus optimizavimo lygio, nurodomo per flag\textquotesingle{}us.
+\item {\ttfamily master} ir {\ttfamily develop} merge\textquotesingle{}as.
+\end{DoxyEnumerate}
+
+\paragraph*{Realizacija}
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily struct} perdaryta į {\ttfamily class}. Palyginta sparta.
+\item Atliktas tyrimas su optimizavimo flag\textquotesingle{}ais.
+\item Darbas su branch\textquotesingle{}ais. Sukurtas {\ttfamily develop} ir padarytas merge su {\ttfamily master}. 
+\end{DoxyEnumerate}
