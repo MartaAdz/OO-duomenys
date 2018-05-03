@@ -30,14 +30,11 @@ public:
         output << s.vardas<<" "<<s.pavarde<<" "<<s.galBalas<<" ";
         return output;
     }
-    studentas& operator==(studentas &s){
-        vardas=s.vardas;
-        pavarde=s.pavarde;
-        galBalas=s.galBalas;
-        return *this;
-    }
-
+    bool operator==(const studentas &s);
+    bool operator!=(const studentas &s);
 };
+
+
 bool operator<(const studentas&rhs, const studentas&lhs);
 bool operator>(const studentas&rhs, const studentas&lhs);
 
