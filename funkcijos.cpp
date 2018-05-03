@@ -45,7 +45,7 @@ void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int 
 
 }
 
-void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end(), lyginimas_egzaminas); }
+void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end()); }
 
 bool arGeras(const studentas &s) {if (s.getBalas()>=5) return true;}
 bool arBlogas(const studentas &s) { if (s.getBalas()<5) return true;}
