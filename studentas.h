@@ -38,7 +38,4 @@ public:
 bool operator<(const studentas&rhs, const studentas&lhs);
 bool operator>(const studentas&rhs, const studentas&lhs);
 
-//bool dvi_grupes(const studentas &rhs, const studentas &lhs);
-bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs);
-
 #endif

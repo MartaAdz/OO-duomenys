@@ -49,8 +49,8 @@ int main()
             visi_toVec(duomenys, S, stud_kiekis);
             rikiavimas_vec(S);
 
-            std::vector<studentas> blogi;
-            skirstymas(S, blogi);
+            //std::vector<studentas> blogi;
+           // skirstymas(S, blogi);
             stud_toFile_vec(S);
 
 

@@ -48,15 +48,10 @@ void visi_toVec(std::istream &duomenys, std::vector<studentas> &S, unsigned int 
 void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end()); }
 
 bool arGeras(const studentas &s) {if (s.getBalas()>=5) return true;}
-bool arBlogas(const studentas &s) { if (s.getBalas()<5) return true;}
-
-void skirstymas(std::vector<studentas>& S, std::vector<studentas>& blogi){
-
-    std::remove_copy_if(S.begin(), S.end(), std::back_inserter(blogi), arGeras);
-    S.erase(remove_if(S.begin(), S.end(), arBlogas), S.end());
-}
 
 void stud_toFile_vec(std::vector<studentas>& S){
+
+    auto riba = std::stable_partition (S.begin(), S.end(), arGeras); //studentai, kuriu vidurkis atitinka funkcija arGeras, lieka vektoriuje S
 
     std::ofstream f("gerieji.dat");
 
@@ -66,7 +61,7 @@ void stud_toFile_vec(std::vector<studentas>& S){
                         <<std::setw(20)<<"Galutinis-vidurkis"
                         <<"\n";
 
-    for(auto it = S.begin(); it != S.end() ; it++)
+    for(auto it = S.begin(); it != riba ; it++)
         {
             f<<std::left<<std::setw(20)<<(*it).getVardas()
                         <<std::setw(20)<<(*it).getPavarde()

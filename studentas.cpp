@@ -44,12 +44,3 @@ bool operator>(const studentas&rhs, const studentas&lhs){
         return (rhs.getBalas()>lhs.getBalas());
 }
 
-
-//bool operator!=(const studentas&rhs, const studentas&lhs){
-//    return (rhs.getVardas()!=lhs.getVardas()&&rhs.getPavarde()!=lhs.getPavarde()&&rhs.getBalas()!=lhs.getBalas());
-//}
-
-//bool dvi_grupes(const studentas &rhs, const studentas &lhs){}
-bool lyginimas_egzaminas(const studentas &rhs, const studentas &lhs){ return lhs.getEgzaminas()>rhs.getEgzaminas();}
-
-
