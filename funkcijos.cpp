@@ -49,9 +49,16 @@ void rikiavimas_vec(std::vector<studentas>&S){ sort(S.begin(), S.end()); }
 
 bool arGeras(const studentas &s) {if (s.getBalas()>=5) return true;}
 
+std::vector<studentas> dvi_grupes(std::vector<studentas>&S){
+    auto it = std::stable_partition (S.begin(), S.end(), arGeras); //studentai, kuriu vidurkis atitinka funkcija arGeras, lieka vektoriuje S
+    std::vector<studentas> blogi(it, S.end());
+    S.erase(it, S.end());
+    return blogi;
+
+};
+
 void stud_toFile_vec(std::vector<studentas>& S){
 
-    auto riba = std::stable_partition (S.begin(), S.end(), arGeras); //studentai, kuriu vidurkis atitinka funkcija arGeras, lieka vektoriuje S
 
     std::ofstream f("gerieji.dat");
 
@@ -61,7 +68,7 @@ void stud_toFile_vec(std::vector<studentas>& S){
                         <<std::setw(20)<<"Galutinis-vidurkis"
                         <<"\n";
 
-    for(auto it = S.begin(); it != riba ; it++)
+    for(auto it = S.begin(); it != S.end(); it++)
         {
             f<<std::left<<std::setw(20)<<(*it).getVardas()
                         <<std::setw(20)<<(*it).getPavarde()

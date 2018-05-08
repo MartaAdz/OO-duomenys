@@ -18,7 +18,7 @@ int main()
         unsigned int stud_kiekis;
         //std::cout<<"Generuojamu studentu kiekis: ";
        // std::cin>>stud_kiekis;
-        stud_kiekis = 100;
+        stud_kiekis = 100000;
         const int paz_kiekis = 5;
 
        // for (int i=0; i<=3; i++) {
@@ -51,6 +51,7 @@ int main()
 
             //std::vector<studentas> blogi;
            // skirstymas(S, blogi);
+           dvi_grupes(S);
             stud_toFile_vec(S);
 
 
