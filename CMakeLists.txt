@@ -9,4 +9,12 @@ add_executable(Antra_uzduotis_clone
         funkcijos.cpp
         funkcijos.h
         main.cpp
-        studentas.h)
+        studentas.h
+        studentas.cpp)
+
+add_executable(Testai
+        funkcijos.cpp
+        funkcijos.h
+        Unit_testing/test.cpp
+        studentas.h
+        studentas.cpp)

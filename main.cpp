@@ -18,7 +18,7 @@ int main()
         unsigned int stud_kiekis;
         //std::cout<<"Generuojamu studentu kiekis: ";
        // std::cin>>stud_kiekis;
-        stud_kiekis = 100000;
+        stud_kiekis = 10000;
         const int paz_kiekis = 5;
 
        // for (int i=0; i<=3; i++) {
@@ -48,10 +48,7 @@ int main()
             std::vector<studentas> S;
             visi_toVec(duomenys, S, stud_kiekis);
             rikiavimas_vec(S);
-
-            //std::vector<studentas> blogi;
-           // skirstymas(S, blogi);
-           dvi_grupes(S);
+            dvi_grupes(S);
             stud_toFile_vec(S);
 
 
