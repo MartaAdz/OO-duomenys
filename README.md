@@ -50,7 +50,31 @@ Pasileidziame programa.
 
 
 
+### Versija v0.2
 
+
+#### Reikalavimai
+
+1. doxygen dokumentacija
+
+2. operatoriu overload'inimas
+
+#### Realizacija
+
+- Idetas `stable_partition` algoritmas
+
+- Pašalinta kirstymo funkcija
+
+### Versija v1.0
+
+
+#### Reikalavimai
+
+- Unit testai
+
+#### Realizacija
+
+- Padaryti unit testai naudojant Catch2 framework'a
 
 
 
