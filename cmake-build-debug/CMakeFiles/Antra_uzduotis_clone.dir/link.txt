@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2018.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\Antra_uzduotis_clone.dir/objects.a
-C:\PROGRA~1\MINGW-~1\mingw64\bin\ar.exe cr CMakeFiles\Antra_uzduotis_clone.dir/objects.a @CMakeFiles\Antra_uzduotis_clone.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\mingw64\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Antra_uzduotis_clone.dir/objects.a -Wl,--no-whole-archive  -o Antra_uzduotis_clone.exe -Wl,--out-implib,libAntra_uzduotis_clone.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Antra_uzduotis_clone.dir\linklibs.rsp

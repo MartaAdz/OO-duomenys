@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2018.1\bin\cmake\bin\cmake.exe" -E remove -f CMakeFiles\Testai.dir/objects.a
-C:\PROGRA~1\MINGW-~1\mingw64\bin\ar.exe cr CMakeFiles\Testai.dir/objects.a @CMakeFiles\Testai.dir\objects1.rsp
-C:\PROGRA~1\MINGW-~1\mingw64\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\Testai.dir/objects.a -Wl,--no-whole-archive  -o Testai.exe -Wl,--out-implib,libTestai.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Testai.dir\linklibs.rsp
