@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "funkcijos.h"
+#include "studentas.h"
 #include <fstream>
 
 
@@ -15,7 +16,7 @@ TEST_CASE( "Studento nuskaitymas" ) {  //istestuoja ar vyksta funkcija stud_toFi
         REQUIRE( s.getPavarde() == "Pavarde1" );
     }
     SECTION("Studento egzaminas"){
-        REQUIRE( s.getEgzaminas() == 5 );
+        REQUIRE(s.getEgzaminas() == 5 );
     }
     SECTION("Studento galutinis balas"){
         REQUIRE( s.getBalas() == 5.0 );
