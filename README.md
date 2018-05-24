@@ -81,13 +81,13 @@ Pasileidziame programa.
 
 1. `Class` iskart greitesne nei `struct`
 2. 
-```
+```cpp
   studentas::studentas(std::istream&duomenys){
       stud_fromFile(duomenys);
   }
 ```
 3.
-```
+```cpp
 int main()
 {
         unsigned int stud_kiekis;
