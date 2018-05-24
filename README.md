@@ -77,20 +77,46 @@ Pasileidziame programa.
 - Padaryti unit testai naudojant Catch2 framework'a
 
 
+### Cool dalykai
 
+1. `Class` iskart greitesne nei `struct`
+2. 
+```
+  studentas::studentas(std::istream&duomenys){
+      stud_fromFile(duomenys);
+  }
+```
+3.
+```
+int main()
+{
+        unsigned int stud_kiekis;
+        stud_kiekis = 10000;
+        const int paz_kiekis = 5;
 
+        studentu_generavimas(stud_kiekis, paz_kiekis);
 
+        std::ifstream duomenys("kursiokai.txt");
 
+        try{
+            if(duomenys.fail())
+            {
+                throw std::exception();
+            }
+        }
+        catch (std::exception &e1)
+        {   e1.what();
+            std::cerr<<"Tokio failo nera. Baigiu programa.";
+            exit(1);
+        }
 
+            std::vector<studentas> S;
+            visi_toVec(duomenys, S, stud_kiekis);
+            rikiavimas_vec(S);
+            dvi_grupes(S);
+            stud_toFile_vec(S);
 
+        return 0;
+ }
 
-
-
-
-
-
-
-
-
-
-
+```
