@@ -120,3 +120,9 @@ int main()
  }
 
 ```
+
+# Pastabeles
+
+- Doxygen nepilnas
+- Dvejojame kada reikia "dieviskosios trejybes" 
+- Neveikia Unit testas
