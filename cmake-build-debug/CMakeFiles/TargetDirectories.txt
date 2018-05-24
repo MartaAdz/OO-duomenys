@@ -1,4 +1,0 @@
-C:/Users/Marta/Documents/objektinis/uzduotys/Antra_uzduotis_clone/cmake-build-debug/CMakeFiles/Antra_uzduotis_clone.dir
-C:/Users/Marta/Documents/objektinis/uzduotys/Antra_uzduotis_clone/cmake-build-debug/CMakeFiles/Testai.dir
-C:/Users/Marta/Documents/objektinis/uzduotys/Antra_uzduotis_clone/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Marta/Documents/objektinis/uzduotys/Antra_uzduotis_clone/cmake-build-debug/CMakeFiles/rebuild_cache.dir
