@@ -124,5 +124,9 @@ int main()
 # Pastabeles
 
 - Doxygen nepilnas
+-- Updatinau - pridejau komentarus ir aprasymus
 - Dvejojame kada reikia "dieviskosios trejybes" 
 - Neveikia Unit testas
+![alt text][logo]
+
+[logo]:https://github.com/MartaAdz/OO-duomenys/blob/master/Unit_testing/u_test.PNG?raw=true "Unit test"
