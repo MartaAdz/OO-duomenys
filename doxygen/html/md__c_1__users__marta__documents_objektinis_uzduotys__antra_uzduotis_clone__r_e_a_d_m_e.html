@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Duomenys apie studentus: Objektiškai orientuota Duomenų apdorojimo programa</title>
+<title>My Project: Objektiškai orientuota Duomenų apdorojimo programa</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Duomenys apie studentus
-   &#160;<span id="projectnumber">v0.2</span>
+   <div id="projectname">My Project
    </div>
-   <div id="projectbrief">Objektiskai orientuota programa</div>
   </td>
  </tr>
  </tbody>
@@ -110,8 +108,39 @@ $(function() {
 <ol type="1">
 <li><code>struct</code> perdaryta į <code>class</code>. Palyginta sparta.</li>
 <li>Atliktas tyrimas su optimizavimo flag'ais.</li>
-<li>Darbas su branch'ais. Sukurtas <code>develop</code> ir padarytas merge su <code>master</code>. </li>
+<li>Darbas su branch'ais. Sukurtas <code>develop</code> ir padarytas merge su <code>master</code>.</li>
 </ol>
+<h3>Versija v0.2</h3>
+<h4>Reikalavimai</h4>
+<ol type="1">
+<li>doxygen dokumentacija</li>
+<li>operatoriu overload'inimas</li>
+</ol>
+<h4>Realizacija</h4>
+<ul>
+<li>Idetas <code>stable_partition</code> algoritmas</li>
+<li>Pašalinta kirstymo funkcija</li>
+</ul>
+<h3>Versija v1.0</h3>
+<h4>Reikalavimai</h4>
+<ul>
+<li>Unit testai</li>
+</ul>
+<h4>Realizacija</h4>
+<ul>
+<li>Padaryti unit testai naudojant Catch2 framework'a</li>
+</ul>
+<h3>Cool dalykai</h3>
+<ol type="1">
+<li><code>Class</code> iskart greitesne nei <code>struct</code></li>
+<li><div class="fragment"><div class="line"><a class="code" href="classstudentas.html#a40a99ea5d527a3d443123f4785550787">studentas::studentas</a>(std::istream&amp;duomenys){</div><div class="line">    stud_fromFile(duomenys);</div><div class="line">}</div></div><!-- fragment --> 3. <div class="fragment"><div class="line"><span class="keywordtype">int</span> main()</div><div class="line">{</div><div class="line">        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> stud_kiekis;</div><div class="line">        stud_kiekis = 10000;</div><div class="line">        <span class="keyword">const</span> <span class="keywordtype">int</span> paz_kiekis = 5;</div><div class="line"></div><div class="line">        studentu_generavimas(stud_kiekis, paz_kiekis);</div><div class="line"></div><div class="line">        std::ifstream duomenys(<span class="stringliteral">&quot;kursiokai.txt&quot;</span>);</div><div class="line"></div><div class="line">        <span class="keywordflow">try</span>{</div><div class="line">            <span class="keywordflow">if</span>(duomenys.fail())</div><div class="line">            {</div><div class="line">                <span class="keywordflow">throw</span> std::exception();</div><div class="line">            }</div><div class="line">        }</div><div class="line">        <span class="keywordflow">catch</span> (std::exception &amp;e1)</div><div class="line">        {   e1.what();</div><div class="line">            std::cerr&lt;&lt;<span class="stringliteral">&quot;Tokio failo nera. Baigiu programa.&quot;</span>;</div><div class="line">            exit(1);</div><div class="line">        }</div><div class="line"></div><div class="line">            std::vector&lt;studentas&gt; S;</div><div class="line">            visi_toVec(duomenys, S, stud_kiekis);</div><div class="line">            rikiavimas_vec(S);</div><div class="line">            dvi_grupes(S);</div><div class="line">            stud_toFile_vec(S);</div><div class="line"></div><div class="line">        <span class="keywordflow">return</span> 0;</div><div class="line"> }</div></div><!-- fragment --></li>
+</ol>
+<h1>Pastabeles</h1>
+<ul>
+<li>Doxygen nepilnas</li>
+<li>Dvejojame kada reikia "dieviskosios trejybes"</li>
+<li>Neveikia Unit testas </li>
+</ul>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

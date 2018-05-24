@@ -60,5 +60,95 @@ Pasileidziame programa.
 \begin{DoxyEnumerate}
 \item {\ttfamily struct} perdaryta į {\ttfamily class}. Palyginta sparta.
 \item Atliktas tyrimas su optimizavimo flag\textquotesingle{}ais.
-\item Darbas su branch\textquotesingle{}ais. Sukurtas {\ttfamily develop} ir padarytas merge su {\ttfamily master}. 
+\item Darbas su branch\textquotesingle{}ais. Sukurtas {\ttfamily develop} ir padarytas merge su {\ttfamily master}.
 \end{DoxyEnumerate}
+
+\subsubsection*{Versija v0.\+2}
+
+\paragraph*{Reikalavimai}
+
+
+\begin{DoxyEnumerate}
+\item doxygen dokumentacija
+\item operatoriu overload\textquotesingle{}inimas
+\end{DoxyEnumerate}
+
+\paragraph*{Realizacija}
+
+
+\begin{DoxyItemize}
+\item Idetas {\ttfamily stable\+\_\+partition} algoritmas
+\item Pašalinta kirstymo funkcija
+\end{DoxyItemize}
+
+\subsubsection*{Versija v1.\+0}
+
+\paragraph*{Reikalavimai}
+
+
+\begin{DoxyItemize}
+\item Unit testai
+\end{DoxyItemize}
+
+\paragraph*{Realizacija}
+
+
+\begin{DoxyItemize}
+\item Padaryti unit testai naudojant Catch2 framework\textquotesingle{}a
+\end{DoxyItemize}
+
+\subsubsection*{Cool dalykai}
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily Class} iskart greitesne nei {\ttfamily struct}
+\item 
+\begin{DoxyCode}
+\mbox{\hyperlink{classstudentas_a40a99ea5d527a3d443123f4785550787}{studentas::studentas}}(std::istream&duomenys)\{
+    stud\_fromFile(duomenys);
+\}
+\end{DoxyCode}
+ 3. 
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} main()
+\{
+        \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} stud\_kiekis;
+        stud\_kiekis = 10000;
+        \textcolor{keyword}{const} \textcolor{keywordtype}{int} paz\_kiekis = 5;
+
+        studentu\_generavimas(stud\_kiekis, paz\_kiekis);
+
+        std::ifstream duomenys(\textcolor{stringliteral}{"kursiokai.txt"});
+
+        \textcolor{keywordflow}{try}\{
+            \textcolor{keywordflow}{if}(duomenys.fail())
+            \{
+                \textcolor{keywordflow}{throw} std::exception();
+            \}
+        \}
+        \textcolor{keywordflow}{catch} (std::exception &e1)
+        \{   e1.what();
+            std::cerr<<\textcolor{stringliteral}{"Tokio failo nera. Baigiu programa."};
+            exit(1);
+        \}
+
+            std::vector<studentas> S;
+            visi\_toVec(duomenys, S, stud\_kiekis);
+            rikiavimas\_vec(S);
+            dvi\_grupes(S);
+            stud\_toFile\_vec(S);
+
+        \textcolor{keywordflow}{return} 0;
+ \}
+\end{DoxyCode}
+
+\end{DoxyEnumerate}
+
+\section*{Pastabeles}
+
+
+\begin{DoxyItemize}
+\item Doxygen nepilnas
+\item Dvejojame kada reikia \char`\"{}dieviskosios trejybes\char`\"{}
+\item Neveikia Unit testas 
+\end{DoxyItemize}
